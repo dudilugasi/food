@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="foodApp">
+<head>
+    <meta charset="UTF-8">
+    <title>recipes</title>
+    <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/init.js"></script>
+</head>
+<body>
+    <div id="wrapper" ng-controller="controller">
+
+        <header>
+            <a href="#" id="button"></a>
+            <span id="headerTitle">Recipes</span>
+        </header>
+
+        <main>
+            <section id="breakfast" class="recipe">
+                <span class="meal">BREAKFAST</span>
+                <span class="bell"></span>
+                <span class="time">8:00</span>
+                <section class="recipeImage closedImage">
+                    <span class="recipeName"></span>
+                    <span class="recipeTimeToMake"></span>
+                    <span class="recipeServes"></span>
+                    <span class="like"></span>
+                </section>
+                <section class="ingredients-btn recipe-btn pressed-btn">INGREDIENTS</section>
+                <section class="directions-btn recipe-btn">DIRECTIONS</section>
+                <div class="clear"></div>
+                <section class="bottom">
+                    <section class="bottom-row"><p>1 onion, chopped</p></section>
+                    <section class="bottom-row"><p>1 onion, chopped</p></section>
+                    <section class="bottom-row"><p>1 onion, chopped</p></section>
+                    <section class="bottom-row"><p>1 onion, chopped</p></section>
+
+                </section>
+            </section>
+            <section id="brunch" class="recipe">
+                <span class="meal">BRUNCH</span>
+                <span class="bell"></span>
+                <span class="time">10:00</span>
+                <section class="recipeImage">
+                    <span class="recipeName"></span>
+                    <span class="recipeTimeToMake"></span>
+                    <span class="recipeServes"></span>
+                    <span class="like"></span>
+                </section>
+                <section class="ingredients-btn recipe-btn">INGREDIENTS</section>
+                <section class="directions-btn recipe-btn">DIRECTIONS</section>
+                <div class="clear"></div>
+            </section>
+            <section id="lunch" class="recipe"></section>
+            <section id="afternoon" class="recipe"></section>
+            <section id="dinner" class="recipe"></section>
+            <section id="supper" class="recipe"></section>
+            <footer></footer>
+        </main>
+
+        <nav>
+            <span id="navLogo"></span>
+            <a href="#" class="navOption">FoodStuffs</a>
+            <a href="#" class="navOption">Recipes</a>
+            <a href="#" class="navOption">Black List</a>
+            <a href="#" class="navOption">Settings</a>
+            <a href="#" id="exitOption" class="navOption">Exit</a>
+        </nav>
+    </div>
+
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/food.js"></script>
+</body>
+</html>
