@@ -293,3 +293,30 @@ nav {
 }
 
 
+.recipeName {
+    font-size: 52px;
+    color: #444;
+    position: absolute;
+    bottom: 112px;
+    left: 61px;
+}
+
+.recipeTimeToMake {
+    position: absolute;
+    left: 61px;
+    bottom: 52px;
+    font-size: 42px;
+    color: #444;
+    background: url("../images/navIcon.png") no-repeat left center;
+    padding-left: 58px;
+}
+
+.recipeServes {
+    position: absolute;
+    left: 388px;
+    bottom: 52px;
+    font-size: 42px;
+    color: #444;
+    background: url("../images/navIcon.png") no-repeat left center;
+    padding-left: 58px;
+}
