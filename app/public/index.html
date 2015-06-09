@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="foodApp">
+<html ng-app="food">
 <head>
     <meta charset="UTF-8">
     <title>foodstuffs</title>
@@ -13,62 +13,28 @@
 </head>
 <body>
     <div id="wrapper" ng-controller="controller">
-
-
-
         <header>
             <a href="#" id="button"></a>
             <span id="headerTitle">FoodStuffs</span>
         </header>
         <section id="dotsSection">
-            <section>
-                <section class="dot" id="coloredDot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <section class="dot"></section>
-                <div class="clear"></div>
+            <section ng-repeat="category in ingredients.items">
+                <section class="dot" ng-class="markCurrent($index)"></section>
             </section>
         </section>
         <main>
-
-
             <section id="foodstuffs">
-                <span id="leftArrow"></span>
-                <section id="category">VEGETABLES</section>
-                <span id="rightArrow"></span>
-
-                <div class="switch">
-                    <input id="toggle-1" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-1" data-on="hello"></label>
-                </div>
-                <div class="switch">
-                    <input id="toggle-2" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-2"></label>
-                </div>
-                <div class="switch">
-                    <input id="toggle-3" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-3"></label>
-                </div>
-                <div class="switch">
-                    <input id="toggle-4" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-4" ></label>
-                </div>
-                <div class="switch">
-                    <input id="toggle-5" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-5"></label>
-                </div>
-                <div class="switch">
-                    <input id="toggle-6" class="toggle" type="checkbox" data-role="none">
-                    <label for="toggle-6"></label>
-                </div>
-
+                <span id="leftArrow" ng-click="goLeft()"></span>
+                <section id="category">{{category}}</section>
+                <span id="rightArrow" ng-click="goRight()"></span>
+                <ul ng-repeat="category in ingredients.items" id="{{category.category}}" ng-hide="categoriesHide[$index]">
+                    <li ng-repeat="item in category.ingredients">
+                        <div class="switch">
+                            <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox" data-role="none" ng-model="item.checked">
+                            <label for="{{item.name}}" data-on="{{item.name}}"></label>
+                        </div>
+                    </li>
+                </ul>
             </section>
         </main>
 
@@ -81,7 +47,8 @@
             <a href="#" id="exitOption" class="navOption">Exit</a>
         </nav>
     </div>
+
     <script src="js/lib/angular/angular.min.js"></script>
-    <script src="js/food.js"></script>
+    <script src="js/foodstuffs.js"></script>
 </body>
 </html>

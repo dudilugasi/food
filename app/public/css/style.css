@@ -73,7 +73,7 @@ header > a:hover {
     margin: 0 8px 0 8px;
 }
 
-#coloredDot {
+.coloredDot {
     background-color: #4d4d4d;
 }
 
@@ -94,6 +94,8 @@ header > a:hover {
     display: inline-block;
     top: 62px;
     left: 52px;
+    z-index: 50;
+    cursor: pointer;
 }
 
 #rightArrow {
@@ -104,6 +106,12 @@ header > a:hover {
     display: inline-block;
     top: 62px;
     right: 52px;
+    cursor: pointer;
+}
+
+#rightArrow:hover , #leftArrow:hover {
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
 }
 
 .switch {
@@ -280,4 +288,8 @@ nav {
     color: #444;
     background: url("../images/navIcon.png") no-repeat left center;
     padding-left: 58px;
+}
+
+ul {
+    list-style-type: none;
 }
