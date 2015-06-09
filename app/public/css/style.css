@@ -15,8 +15,9 @@ section, main, nav {
 
 main {
     position: relative;
-    min-height: 1593px;
+    min-height: 1681px;
     background-color: #cccccc;
+    padding-bottom: 1px;
 }
 
 #wrapper {
@@ -92,7 +93,7 @@ header > a:hover {
     width: 54px;
     height: 38px;
     display: inline-block;
-    top: 62px;
+    top: 150px;
     left: 52px;
     z-index: 50;
     cursor: pointer;
@@ -104,7 +105,7 @@ header > a:hover {
     width: 54px;
     height: 38px;
     display: inline-block;
-    top: 62px;
+    top: 150px;
     right: 52px;
     cursor: pointer;
 }

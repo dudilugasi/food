@@ -11,26 +11,28 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/init.js"></script>
 </head>
-<body>
+<body ng-cloak>
     <div id="wrapper" ng-controller="controller">
         <header>
             <a href="#" id="button"></a>
             <span id="headerTitle">FoodStuffs</span>
         </header>
-        <section id="dotsSection">
-            <section ng-repeat="category in ingredients.items">
-                <section class="dot" ng-class="markCurrent($index)"></section>
-            </section>
-        </section>
+
         <main>
+
             <section id="foodstuffs">
+                <section id="dotsSection">
+                    <section ng-repeat="category in ingredients">
+                        <section class="dot" ng-class="markCurrent($index)"></section>
+                    </section>
+                </section>
                 <span id="leftArrow" ng-click="goLeft()"></span>
                 <section id="category">{{category}}</section>
                 <span id="rightArrow" ng-click="goRight()"></span>
-                <ul ng-repeat="category in ingredients.items" id="{{category.category}}" ng-hide="categoriesHide[$index]">
+                <ul ng-repeat="category in ingredients" id="{{category.category}}" ng-hide="categoriesHide[$index]">
                     <li ng-repeat="item in category.ingredients">
                         <div class="switch">
-                            <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox" data-role="none" ng-model="item.checked">
+                            <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox" data-role="none" ng-model="item.checked" ng-click="changeArray(item.name,item.checked)">
                             <label for="{{item.name}}" data-on="{{item.name}}"></label>
                         </div>
                     </li>
