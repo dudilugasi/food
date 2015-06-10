@@ -11,7 +11,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="js/init.js"></script>
 </head>
-<body ng-cloak>
+<body ng-cloak="true">
     <div id="wrapper" ng-controller="controller">
         <header>
             <a href="#" id="button"></a>
@@ -20,7 +20,7 @@
 
         <main>
 
-            <section id="foodstuffs">
+            <section id="foodstuffs" ng-hide="foodstuffsHide">
                 <section id="dotsSection">
                     <section ng-repeat="category in ingredients.items">
                         <section class="dot" ng-class="markCurrent($index)"></section>
@@ -46,8 +46,8 @@
 
         <nav>
             <span id="navLogo"></span>
-            <a href="#" class="navOption">FoodStuffs</a>
-            <a href="#" class="navOption">Recipes</a>
+            <a href="#" class="navOption" ng-click="foodstuffsClick()">FoodStuffs</a>
+            <a href="#" class="navOption" ng-click="recipesClick()">Recipes</a>
             <a href="#" class="navOption">Black List</a>
             <a href="#" class="navOption">Settings</a>
             <a href="#" id="exitOption" class="navOption">Exit</a>

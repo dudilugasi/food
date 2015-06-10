@@ -16,6 +16,7 @@ var ingredientsArray = [];
 
 app.controller('controller',function($scope){
 
+
     //index of the current page
     $scope.currentPage = 0;
 
@@ -65,5 +66,15 @@ app.controller('controller',function($scope){
         if (!checked) {
             ingredientsArray.splice(ingredientsArray.indexOf(name),1);
         }
+    };
+
+    $scope.recipesClick = function() {
+        $scope.foodstuffsHide = true;
+        $('nav').hide('slide',300);
+    };
+
+    $scope.foodstuffsClick = function() {
+        $scope.foodstuffsHide = false;
+        $('nav').hide('slide',300);
     };
 });
