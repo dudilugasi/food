@@ -22,14 +22,18 @@
 
             <section id="foodstuffs">
                 <section id="dotsSection">
-                    <section ng-repeat="category in ingredients">
+                    <section ng-repeat="category in ingredients.items">
                         <section class="dot" ng-class="markCurrent($index)"></section>
                     </section>
                 </section>
+
                 <span id="leftArrow" ng-click="goLeft()"></span>
-                <section id="category">{{category}}</section>
+
+                <section id="category">{{ingredients.items[currentPage].category}}</section>
+
                 <span id="rightArrow" ng-click="goRight()"></span>
-                <ul ng-repeat="category in ingredients" id="{{category.category}}" ng-hide="categoriesHide[$index]">
+
+                <ul ng-repeat="category in ingredients.items" id="{{category.category}}" ng-hide="category.hide">
                     <li ng-repeat="item in category.ingredients">
                         <div class="switch">
                             <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox" data-role="none" ng-model="item.checked" ng-click="changeArray(item.name,item.checked)">
