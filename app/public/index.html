@@ -13,6 +13,8 @@
 </head>
 <body ng-cloak="true">
     <div id="wrapper" ng-controller="controller">
+
+        <!-- header with title and side bar button -->
         <header>
             <a href="#" id="button"></a>
             <span id="headerTitle">{{headerTitle}}</span>
@@ -20,7 +22,10 @@
 
         <main>
 
+            <!-- the page of the categories -->
             <section id="foodstuffs"  ng-hide="foodstuffsHide">
+
+                <!-- section to hold the dots for each category -->
                 <section id="dotsSection">
                     <section ng-repeat="category in ingredients.items">
                         <section class="dot" ng-class="markCurrent($index)"></section>
@@ -33,18 +38,29 @@
 
                 <span id="rightArrow" ng-click="goRight()"></span>
 
-                <ul ng-repeat="category in ingredients.items" id="{{category.category}}" ng-hide="category.hide">
+                <!-- each category is an ul one will be shown while the others are hidden -->
+                <ul ng-repeat="category in ingredients.items" id="{{category.category}}"
+                    ng-hide="category.hide">
+
+                    <!-- each ingredient is a custom checkbox -->
                     <li ng-repeat="item in category.ingredients">
                         <div class="switch">
-                            <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox" data-role="none" ng-model="item.checked" ng-click="changeArray(item.name,item.checked)">
+                            <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox"
+                                   data-role="none" ng-model="item.checked" ng-click="changeArray(item.name,item.checked)">
                             <label for="{{item.name}}" data-on="{{item.name}}"></label>
                         </div>
                     </li>
                 </ul>
             </section>
 
+            <!-- the page of the recipes will be hidden when on the ingredients page-->
             <section id="recipesSection"  ng-hide="recipesSectionHide">
+
+                <!-- each day is a section that have three meals -->
+                <!-- one day is shown while all the others are hidden -->
                 <section ng-repeat="day in recipes.days" ng-hide="day.hide">
+
+                    <!-- each meal is a section with ingredients, direction and image sections -->
                     <section ng-repeat="meal in day.meals" class="recipe">
                         <span class="meal">{{meal.meal.toUpperCase()}}</span>
                         <span class="bell"></span>
@@ -55,8 +71,12 @@
                             <span class="recipeServes">{{meal.serves}}</span>
                             <span class="like"></span>
                         </section>
+
+                        <!-- the buttons of each bottom section -->
                         <section class="ingredients-btn recipe-btn"  ng-click="showBottomClick(1,$parent.$index,$index)" ng-class="meal.pressedBtnIngredient">INGREDIENTS</section>
                         <section class="directions-btn recipe-btn"  ng-click="showBottomClick(2,$parent.$index,$index)" ng-class="meal.pressedBtnDirection">DIRECTIONS</section>
+
+                        <!-- the ingredients and direction sections are hidden if not pressed -->
                         <section class="bottom" ng-hide="meal.hideIngredients">
                             <section class="bottom-row" ng-repeat="row in meal.ingredients"><p>{{row.description}}</p></section>
                         </section>
@@ -64,22 +84,21 @@
                             <section class="bottom-row" ng-repeat="row in meal.directions"><p>{{row}}</p></section>
                         </section>
                         <div class="clear"></div>
+
                     </section>
+
                 </section>
+
+                <!-- footer will be the navigation bar between the days  -->
                 <footer>
                     <ul>
-                        <li><a href="#" class="currentDay" ng-click="selectDay(0)" ng-class="markCurrentDay(0)">Su</a></li>
-                        <li><a href="#" ng-click="selectDay(1)" ng-class="markCurrentDay(1)">Mo</a></li>
-                        <li><a href="#" ng-click="selectDay(2)" ng-class="markCurrentDay(2)">Tu</a></li>
-                        <li><a href="#" ng-click="selectDay(3)" ng-class="markCurrentDay(3)">We</a></li>
-                        <li><a href="#" ng-click="selectDay(4)" ng-class="markCurrentDay(4)">Th</a></li>
-                        <li><a href="#" ng-click="selectDay(5)" ng-class="markCurrentDay(5)">Fr</a></li>
-                        <li><a href="#" ng-click="selectDay(6)" ng-class="markCurrentDay(6)">Sa</a></li>
+                        <li ng-repeat="day in recipes.days"><a href="#" ng-click="selectDay($index)" ng-class="markCurrentDay($index)">{{day.name}}</a></li>
                     </ul>
                 </footer>
             </section>
         </main>
 
+        <!-- side bar menu -->
         <nav>
             <span id="navLogo"></span>
             <a href="#" class="navOption" ng-click="foodstuffsClick()">FoodStuffs</a>

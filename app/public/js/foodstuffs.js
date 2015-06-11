@@ -33,7 +33,15 @@ app.controller('controller',function($scope,$http){
     $scope.currentDay = 0;
 
     //hold the data recipes
-    $scope.recipes = {days : [{meals: []},{meals: []},{meals: []},{meals: []},{meals: []},{meals: []},{meals: []}]};
+    $scope.recipes = {days : [
+        {name:"Su",meals: []},
+        {name:"Mo",meals: []},
+        {name:"Tu",meals: []},
+        {name:"We",meals: []},
+        {name:"Th",meals: []},
+        {name:"Fr",meals: []},
+        {name:"Sa",meals: []}
+    ]};
 
     //index of the current page in the category page
     $scope.currentPage = 0;
