@@ -2,6 +2,8 @@ var app = angular.module('food',[]);
 
 var ingredients = {items: []};
 
+//before the app start we get the ingredient from the web server
+//each item will represent a page of category that will be hidden with the hide directive
 app.run(function($http){
     $http.get("http://localhost:8000/get-ingredients").success(function(data){
         ingredients.items = data;
@@ -12,9 +14,20 @@ app.run(function($http){
     });
 });
 
+//this array will hold the ingredients the user do not want in his food
 var ingredientsArray = [];
 
+
+//main controller of the application
 app.controller('controller',function($scope,$http){
+
+    $scope.headerTitle = "FoodStuffs";
+
+    //will hide/show the categories page
+    $scope.foodstuffsHide = false;
+
+    //will hide/show the recipes page
+    $scope.recipesSectionHide = true;
 
     //the day that is displayed
     $scope.currentDay = 0;
@@ -22,7 +35,7 @@ app.controller('controller',function($scope,$http){
     //hold the data recipes
     $scope.recipes = {days : [{meals: []},{meals: []},{meals: []},{meals: []},{meals: []},{meals: []},{meals: []}]};
 
-    //index of the current page
+    //index of the current page in the category page
     $scope.currentPage = 0;
 
     //the ingredients data
@@ -73,19 +86,26 @@ app.controller('controller',function($scope,$http){
         }
     };
 
+    //get the index of the day, hide the previous day and display the current day
     $scope.selectDay = function(index) {
         $scope.recipes.days[$scope.currentDay].hide = true;
         $scope.recipes.days[index].hide = false;
         $scope.currentDay = index;
-
     };
 
+    //returned a class the mark the current day
     $scope.markCurrentDay = function(index) {
         if (index == $scope.currentDay) {
             return "currentDay";
         }
     };
 
+    //when clicking the recipes page
+    // the app will get from the WS the recipes that match the ingredients sent
+    //than on success the data will be divided to days
+    //each day will receive three random recipes to each meal
+    //each meal will get directives to hide certain objects
+    //the days will be hidden except one
     $scope.recipesClick = function() {
         $http({
             url: "http://localhost:8000/get-recipes",
@@ -118,22 +138,30 @@ app.controller('controller',function($scope,$http){
             }
 
             $scope.recipes.days[0].hide = false;
+            $scope.selectDay(0);
 
         });
-
+        $scope.headerTitle = "Recipes";
         $scope.foodstuffsHide = true;
         $scope.recipesSectionHide = false;
         $('nav').hide('slide',300);
     };
 
+    //to return to the category menu
     $scope.foodstuffsClick = function() {
+        $scope.headerTitle = "FoodStuffs";
         $scope.foodstuffsHide = false;
         $scope.recipesSectionHide = true;
         $('nav').hide('slide',300);
     };
 
+
+    //if the user press ingredients or direction button:
+    //the class of the pressed button and the recipe image will be set accordingly
+    //the other bottom will be hidden or shown accordingly
     $scope.showBottomClick = function(num,i,j) {
         switch (num){
+            //user pressed ingredients button
             case 1:
                 if($scope.recipes.days[i].meals[j].hideIngredients == false){
                     $scope.recipes.days[i].meals[j].hideIngredients = true;
@@ -148,6 +176,8 @@ app.controller('controller',function($scope,$http){
                 }
                 $scope.recipes.days[i].meals[j].hideDirections = true;
                 break;
+
+            //user pressed directions button
             case 2:
                 if($scope.recipes.days[i].meals[j].hideDirections == false){
                     $scope.recipes.days[i].meals[j].hideDirections = true;
@@ -161,7 +191,6 @@ app.controller('controller',function($scope,$http){
                     $scope.recipes.days[i].meals[j].pressedBtnDirection = "pressed-btn";
                 }
                 $scope.recipes.days[i].meals[j].hideIngredients = true;
-
                 break;
         }
     }

@@ -15,12 +15,12 @@
     <div id="wrapper" ng-controller="controller">
         <header>
             <a href="#" id="button"></a>
-            <span id="headerTitle">FoodStuffs</span>
+            <span id="headerTitle">{{headerTitle}}</span>
         </header>
 
         <main>
 
-            <section id="foodstuffs" ng-hide="foodstuffsHide">
+            <section id="foodstuffs"  ng-hide="foodstuffsHide">
                 <section id="dotsSection">
                     <section ng-repeat="category in ingredients.items">
                         <section class="dot" ng-class="markCurrent($index)"></section>
@@ -42,7 +42,8 @@
                     </li>
                 </ul>
             </section>
-            <section id="recipesSection" ng-hide="recipesSectionHide" ng-init="recipesSectionHide = true">
+
+            <section id="recipesSection"  ng-hide="recipesSectionHide">
                 <section ng-repeat="day in recipes.days" ng-hide="day.hide">
                     <section ng-repeat="meal in day.meals" class="recipe">
                         <span class="meal">{{meal.meal.toUpperCase()}}</span>
