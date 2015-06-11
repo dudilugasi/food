@@ -334,3 +334,39 @@ footer {
 .currentDay {
     color: #fff;
 }
+
+/* add */
+.pressed-btn {
+    background-color: #999;
+    border: solid 3px #999;
+    color: #fff;
+}
+
+/* add */
+.bottom {
+    width: 976px;
+    height: 627px;
+    background-color: #999;
+    position: relative;
+    top: 94px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+/* add */
+.bottom-row {
+    width: 928px;
+    color: #444;
+    background-color: #fff;
+    font-size: 42px;
+    margin: 24px;
+}
+
+/* add */
+.bottom-row > p {
+    padding: 40px;
+}
+
+.closedImage {
+    height: 411px;
+}
