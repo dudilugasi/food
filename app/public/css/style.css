@@ -17,7 +17,8 @@ main {
     position: relative;
     min-height: 1681px;
     background-color: #cccccc;
-    padding-bottom: 1px;
+    padding-bottom: 144px;
+    padding-top: 168px;
 }
 
 #wrapper {
@@ -29,6 +30,14 @@ main {
 header {
     height: 168px;
     background-color: #4d4d4d;
+    position: fixed;
+    width: 1080px;
+    z-index: 100;
+    top: 0;
+}
+
+#foodstuffs {
+    position: relative;
 }
 
 #dotsSection {
@@ -293,4 +302,35 @@ nav {
 
 ul {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+footer > ul {
+    position: relative;
+    top: 24px;
+}
+footer > ul > li {
+    display: inline;
+}
+
+footer > ul > li > a{
+    color : #999;
+    font-size: 68px;
+    padding: 0 28px 0 28px;
+}
+
+footer {
+    height: 144px;
+    background-color: #000;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 1080px;
+    z-index: 100;
+}
+
+.currentDay {
+    color: #fff;
 }
