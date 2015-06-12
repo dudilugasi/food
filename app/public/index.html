@@ -7,8 +7,8 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="js/lib/jquery/jquery-ui.min.js"></script>
     <script src="js/init.js"></script>
 </head>
 <body ng-cloak="true">
@@ -46,7 +46,8 @@
                     <li ng-repeat="item in category.ingredients">
                         <div class="switch">
                             <input id="{{item.name}}" name="{{item.name}}" class="toggle" type="checkbox"
-                                   data-role="none" ng-model="item.checked" ng-click="changeArray(item.name,item.checked)">
+                                   data-role="none" ng-model="item.checked"
+                                   ng-click="changeArray(item.name,item.checked)">
                             <label for="{{item.name}}" data-on="{{item.name}}"></label>
                         </div>
                     </li>
@@ -69,19 +70,28 @@
                             <span class="recipeName">{{meal.name}}</span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>
-                            <span class="like"></span>
+                            <span class="like" ng-class="meal.likedMeal"
+                                    ng-click="likeAMeal($parent.$index,$index)"></span>
                         </section>
 
                         <!-- the buttons of each bottom section -->
-                        <section class="ingredients-btn recipe-btn"  ng-click="showBottomClick(1,$parent.$index,$index)" ng-class="meal.pressedBtnIngredient">INGREDIENTS</section>
-                        <section class="directions-btn recipe-btn"  ng-click="showBottomClick(2,$parent.$index,$index)" ng-class="meal.pressedBtnDirection">DIRECTIONS</section>
+                        <section class="ingredients-btn recipe-btn"
+                                 ng-click="showBottomClick(1,$parent.$index,$index)"
+                                 ng-class="meal.pressedBtnIngredient">INGREDIENTS</section>
+                        <section class="directions-btn recipe-btn"
+                                 ng-click="showBottomClick(2,$parent.$index,$index)"
+                                 ng-class="meal.pressedBtnDirection">DIRECTIONS</section>
 
                         <!-- the ingredients and direction sections are hidden if not pressed -->
                         <section class="bottom" ng-hide="meal.hideIngredients">
-                            <section class="bottom-row" ng-repeat="row in meal.ingredients"><p>{{row.description}}</p></section>
+                            <section class="bottom-row" ng-repeat="row in meal.ingredients">
+                                <p>{{row.description}}</p>
+                            </section>
                         </section>
                         <section class="bottom" ng-hide="meal.hideDirections">
-                            <section class="bottom-row" ng-repeat="row in meal.directions"><p>{{row}}</p></section>
+                            <section class="bottom-row" ng-repeat="row in meal.directions">
+                                <p>{{row}}</p>
+                            </section>
                         </section>
                         <div class="clear"></div>
 
@@ -92,7 +102,8 @@
                 <!-- footer will be the navigation bar between the days  -->
                 <footer>
                     <ul>
-                        <li ng-repeat="day in recipes.days"><a href="#" ng-click="selectDay($index)" ng-class="markCurrentDay($index)">{{day.name}}</a></li>
+                        <li ng-repeat="day in recipes.days"><a href="#" ng-click="selectDay($index)"
+                            ng-class="markCurrentDay($index)">{{day.name}}</a></li>
                     </ul>
                 </footer>
             </section>

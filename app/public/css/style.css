@@ -278,6 +278,7 @@ nav {
     position: absolute;
     bottom: 112px;
     left: 61px;
+    width: 600px;
 }
 
 .recipeTimeToMake {
@@ -372,3 +373,18 @@ footer {
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+
+
+.like {
+    background-image: url("../images/heart.png");
+    display: inline-block;
+    width: 111px;
+    height: 98px;
+    position: absolute;
+    bottom: 64px;
+    right: 64px;
+}
+
+.likeFill {
+    background-image: url("../images/heart_p.png");
+}

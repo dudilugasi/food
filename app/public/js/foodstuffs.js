@@ -2,6 +2,8 @@ var app = angular.module('food',[]);
 
 var ingredients = {items: []};
 
+var user = {id: 1,likes: []};
+
 //before the app start we get the ingredient from the web server
 //each item will represent a page of category that will be hidden with the hide directive
 app.run(function($http){
@@ -12,6 +14,9 @@ app.run(function($http){
         });
         ingredients.items[0].hide = false;
     });
+    $http.get("http://localhost:8000/get-likes?user_id=" + user.id).success(function(data){
+        user.likes = data;
+    });
 });
 
 //this array will hold the ingredients the user do not want in his food
@@ -20,7 +25,10 @@ var ingredientsArray = [];
 
 //main controller of the application
 app.controller('controller',function($scope,$http){
+    //app user
+    $scope.user = user;
 
+    //title of the header
     $scope.headerTitle = "FoodStuffs";
 
     //will hide/show the categories page
@@ -142,6 +150,12 @@ app.controller('controller',function($scope,$http){
                     $scope.recipes.days[i].meals[j].imageClass = "";
                     $scope.recipes.days[i].meals[j].pressedBtnIngredient = "";
                     $scope.recipes.days[i].meals[j].pressedBtnDirection = "";
+                    if ($scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1 ) {
+                        $scope.recipes.days[i].meals[j].likedMeal = 'likeFill';
+                    }
+                    else {
+                        $scope.recipes.days[i].meals[j].likedMeal = '';
+                    }
                 }
             }
 
@@ -201,5 +215,27 @@ app.controller('controller',function($scope,$http){
                 $scope.recipes.days[i].meals[j].hideIngredients = true;
                 break;
         }
+    };
+
+    $scope.likeAMeal = function(i,j) {
+        var mealNameIndex = $scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name);
+        if (mealNameIndex > -1 ) {
+            $scope.recipes.days[i].meals[j].likedMeal = '';
+            $scope.user.likes.splice(mealNameIndex,1);
+        }
+        else {
+            $scope.recipes.days[i].meals[j].likedMeal = 'likeFill';
+            $scope.user.likes.push($scope.recipes.days[i].meals[j].name);
+        }
+        console.log($scope.user.likes);
+        $http({
+            url: "http://localhost:8000/add-likes",
+            method: "GET",
+            params: {user_id: $scope.user.id, likes: $scope.user.likes}
+        }).success(function(data) {
+            console.log("fuck");
+        });
+
+
     }
 });
