@@ -1,4 +1,4 @@
-var app = angular.module('food',[]);
+var app = angular.module('food',['ngAnimate']);
 
 var ingredients = {items: []};
 
@@ -82,13 +82,6 @@ app.controller('controller',function($scope,$http){
         }
         else {
             $scope.ingredients.items[$scope.currentPage].hide = false;
-        }
-    };
-
-    //marks the current category page on the dots
-    $scope.markCurrent = function(index){
-        if (index == $scope.currentPage) {
-            return "coloredDot";
         }
     };
 
@@ -198,9 +191,6 @@ app.controller('controller',function($scope,$http){
             url: "http://localhost:8000/add-likes",
             method: "GET",
             params: {user_id: $scope.user.id, likes: $scope.user.likes}
-        }).success(function(data) {
-        });
-
-
-    }
+        }).success(function(data) {});
+    };
 });

@@ -84,7 +84,7 @@
                         <div class="clear"></div>
 
                         <!-- the ingredients and direction sections are hidden if not pressed -->
-                        <section class="bottomContainer" ng-class="{'bottomHide' : !meal.pressedDirections && !meal.pressedIngredients}">
+                        <section class="bottomContainer bottomHide" ng-class="{'bottomHide' : !meal.pressedDirections && !meal.pressedIngredients}">
                         <section class="bottom" ng-hide="meal.pressedDirections">
                             <section class="bottom-row" ng-repeat="row in meal.ingredients">
                                 <p>{{row.description}}</p>
@@ -126,6 +126,7 @@
     </div>
 
     <script src="js/lib/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-animate.min.js"></script>
     <script src="js/foodstuffs.js"></script>
 </body>
 </html>
