@@ -251,6 +251,11 @@ nav {
     margin: 0 auto;
     position: relative;
     top: 94px;
+    -webkit-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    -moz-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    -ms-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    -o-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    transition: all .5s cubic-bezier(0, 1, 0.5, 1);
 }
 
 .recipe-btn {
