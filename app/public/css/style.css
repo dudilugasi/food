@@ -251,11 +251,11 @@ nav {
     margin: 0 auto;
     position: relative;
     top: 94px;
-    -webkit-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
-    -moz-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
-    -ms-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
-    -o-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
-    transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+    -webkit-transition: height .5s;
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    transition: height .5s;
 }
 
 .recipe-btn {
@@ -341,25 +341,20 @@ footer {
     color: #fff;
 }
 
-/* add */
 .pressed-btn {
     background-color: #999;
     border: solid 3px #999;
     color: #fff;
 }
 
-/* add */
 .bottom {
     width: 976px;
     height: 627px;
     background-color: #999;
-    position: relative;
-    top: 94px;
     margin: 0 auto;
     overflow: auto;
 }
 
-/* add */
 .bottom-row {
     width: 928px;
     color: #444;
@@ -368,7 +363,6 @@ footer {
     margin: 24px;
 }
 
-/* add */
 .bottom-row > p {
     padding: 40px;
 }
@@ -392,4 +386,19 @@ footer {
 
 .likeFill {
     background-image: url("../images/heart_p.png");
+}
+
+.bottomContainer {
+    overflow-y: auto;
+    position: relative;
+    top: 93px;
+    height: 627px;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+}
+
+.bottomContainer.bottomHide {
+    height: 0;
 }

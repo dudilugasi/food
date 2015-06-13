@@ -109,13 +109,6 @@ app.controller('controller',function($scope,$http){
         $scope.currentDay = index;
     };
 
-    //returned a class the mark the current day
-    $scope.markCurrentDay = function(index) {
-        if (index == $scope.currentDay) {
-            return "currentDay";
-        }
-    };
-
     //when clicking the recipes page
     // the app will get from the WS the recipes that match the ingredients sent
     //than on success the data will be divided to days
@@ -145,11 +138,8 @@ app.controller('controller',function($scope,$http){
                 $scope.recipes.days[i].meals[1] = lunchArray[Math.floor(Math.random() * lunchArray.length)];
                 $scope.recipes.days[i].meals[2] = dinnerArray[Math.floor(Math.random() * dinnerArray.length)];
                 for (var j = 0 ; j < 3 ; j++) {
-                    $scope.recipes.days[i].meals[j].hideDirections = true;
-                    $scope.recipes.days[i].meals[j].hideIngredients = true;
-                    $scope.recipes.days[i].meals[j].imageClass = "";
-                    $scope.recipes.days[i].meals[j].pressedBtnIngredient = "";
-                    $scope.recipes.days[i].meals[j].pressedBtnDirection = "";
+                    $scope.recipes.days[i].meals[j].pressedDirections = false;
+                    $scope.recipes.days[i].meals[j].pressedIngredients = false;
                     if ($scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1 ) {
                         $scope.recipes.days[i].meals[j].likedMeal = 'likeFill';
                     }
@@ -181,51 +171,32 @@ app.controller('controller',function($scope,$http){
     //if the user press ingredients or direction button:
     //the class of the pressed button and the recipe image will be set accordingly
     //the other bottom will be hidden or shown accordingly
-    $scope.showBottomClick = function(num,i,j) {
-        switch (num){
-            //user pressed ingredients button
-            case 1:
-                if($scope.recipes.days[i].meals[j].hideIngredients == false){
-                    $scope.recipes.days[i].meals[j].hideIngredients = true;
-                    $scope.recipes.days[i].meals[j].imageClass = "";
-                    $scope.recipes.days[i].meals[j].pressedBtnIngredient = "";
-                }else {
-                    $scope.recipes.days[i].meals[j].hideIngredients = false;
-                    $scope.recipes.days[i].meals[j].imageClass = "closedImage";
-                    $scope.recipes.days[i].meals[j].pressedBtnIngredient = "pressed-btn";
-                    $scope.recipes.days[i].meals[j].pressedBtnDirection = "";
-
-                }
-                $scope.recipes.days[i].meals[j].hideDirections = true;
-                break;
-
-            //user pressed directions button
-            case 2:
-                if($scope.recipes.days[i].meals[j].hideDirections == false){
-                    $scope.recipes.days[i].meals[j].hideDirections = true;
-                    $scope.recipes.days[i].meals[j].imageClass = "";
-                    $scope.recipes.days[i].meals[j].pressedBtnDirection = "";
-                }
-                else{
-                    $scope.recipes.days[i].meals[j].hideDirections = false;
-                    $scope.recipes.days[i].meals[j].imageClass = "closedImage";
-                    $scope.recipes.days[i].meals[j].pressedBtnIngredient = "";
-                    $scope.recipes.days[i].meals[j].pressedBtnDirection = "pressed-btn";
-                }
-                $scope.recipes.days[i].meals[j].hideIngredients = true;
-                break;
+    $scope.ingredientsClick = function(meal) {
+        meal.pressedIngredients = !meal.pressedIngredients;
+        if (meal.pressedDirections) {
+            meal.pressedDirections = !meal.pressedDirections;
+        }
+    };
+    $scope.directionsClick = function(meal) {
+        meal.pressedDirections = !meal.pressedDirections;
+        if (meal.pressedIngredients) {
+            meal.pressedIngredients = !meal.pressedIngredients;
         }
     };
 
-    $scope.likeAMeal = function(i,j) {
-        var mealNameIndex = $scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name);
+
+    //if the user like a meal
+    //the name of the meal will be added to the liked array
+    //and the db will be updated
+    $scope.likeAMeal = function(meal) {
+        var mealNameIndex = $scope.user.likes.indexOf(meal.name);
         if (mealNameIndex > -1 ) {
-            $scope.recipes.days[i].meals[j].likedMeal = '';
+            meal.likedMeal = '';
             $scope.user.likes.splice(mealNameIndex,1);
         }
         else {
-            $scope.recipes.days[i].meals[j].likedMeal = 'likeFill';
-            $scope.user.likes.push($scope.recipes.days[i].meals[j].name);
+            meal.likedMeal = 'likeFill';
+            $scope.user.likes.push(meal.name);
         }
         console.log($scope.user.likes);
         $http({
@@ -233,7 +204,6 @@ app.controller('controller',function($scope,$http){
             method: "GET",
             params: {user_id: $scope.user.id, likes: $scope.user.likes}
         }).success(function(data) {
-            console.log("fuck");
         });
 
 

@@ -28,7 +28,7 @@
                 <!-- section to hold the dots for each category -->
                 <section id="dotsSection">
                     <section ng-repeat="category in ingredients.items">
-                        <section class="dot" ng-class="markCurrent($index)"></section>
+                        <section class="dot" ng-class="{'coloredDot' : $index == currentPage}"></section>
                     </section>
                 </section>
 
@@ -66,34 +66,37 @@
                         <span class="meal">{{meal.meal.toUpperCase()}}</span>
                         <span class="bell"></span>
                         <span class="time">8:00</span>
-                        <section class="recipeImage" ng-class="meal.imageClass">
+                        <section class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
                             <span class="recipeName">{{meal.name}}</span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>
                             <span class="like" ng-class="meal.likedMeal"
-                                    ng-click="likeAMeal($parent.$index,$index)"></span>
+                                    ng-click="likeAMeal(meal)"></span>
                         </section>
 
                         <!-- the buttons of each bottom section -->
                         <section class="ingredients-btn recipe-btn"
-                                 ng-click="showBottomClick(1,$parent.$index,$index)"
-                                 ng-class="meal.pressedBtnIngredient">INGREDIENTS</section>
+                                 ng-click="ingredientsClick(meal)"
+                                 ng-class="{'pressed-btn': meal.pressedIngredients}">INGREDIENTS</section>
                         <section class="directions-btn recipe-btn"
-                                 ng-click="showBottomClick(2,$parent.$index,$index)"
-                                 ng-class="meal.pressedBtnDirection">DIRECTIONS</section>
+                                 ng-click="directionsClick(meal)"
+                                 ng-class="{'pressed-btn': meal.pressedDirections}">DIRECTIONS</section>
+                        <div class="clear"></div>
 
                         <!-- the ingredients and direction sections are hidden if not pressed -->
-                        <section class="bottom" ng-hide="meal.hideIngredients">
+                        <section class="bottomContainer" ng-class="{'bottomHide' : !meal.pressedDirections && !meal.pressedIngredients}">
+                        <section class="bottom" ng-hide="meal.pressedDirections">
                             <section class="bottom-row" ng-repeat="row in meal.ingredients">
                                 <p>{{row.description}}</p>
                             </section>
                         </section>
-                        <section class="bottom" ng-hide="meal.hideDirections">
+                        <section class="bottom" ng-hide="meal.pressedIngredients">
                             <section class="bottom-row" ng-repeat="row in meal.directions">
                                 <p>{{row}}</p>
                             </section>
                         </section>
-                        <div class="clear"></div>
+                        </section>
+
 
                     </section>
 
@@ -102,8 +105,10 @@
                 <!-- footer will be the navigation bar between the days  -->
                 <footer>
                     <ul>
-                        <li ng-repeat="day in recipes.days"><a href="#" ng-click="selectDay($index)"
-                            ng-class="markCurrentDay($index)">{{day.name}}</a></li>
+                        <li ng-repeat="day in recipes.days">
+                            <a href="#" ng-click="selectDay($index)"
+                               ng-class="{'currentDay' : $index == currentDay}">{{day.name}}</a>
+                        </li>
                     </ul>
                 </footer>
             </section>
