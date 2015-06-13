@@ -29,8 +29,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44186047">
-              <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.82848835">
+              <caret line="72" column="87" selection-start-line="72" selection-start-column="87" selection-end-line="72" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/app/public/js/foodstuffs.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="30" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="30" />
+              <caret line="191" column="14" selection-start-line="191" selection-start-column="14" selection-end-line="191" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -49,8 +49,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.423077">
-              <caret line="339" column="11" selection-start-line="339" selection-start-column="1" selection-end-line="339" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="413" column="24" selection-start-line="413" selection-start-column="24" selection-end-line="413" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -97,9 +97,9 @@
         <option value="$PROJECT_DIR$/app/public/recipes.html" />
         <option value="$PROJECT_DIR$/app/public/recipes2.html" />
         <option value="$PROJECT_DIR$/app/public/js/init.js" />
-        <option value="$PROJECT_DIR$/app/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/public/js/foodstuffs.js" />
         <option value="$PROJECT_DIR$/app/public/index.html" />
+        <option value="$PROJECT_DIR$/app/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -491,7 +491,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434188387558</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changed the code a little">
+      <created>1434192617050</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1434192617050</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -538,7 +544,8 @@
     <MESSAGE value="added comments to controller" />
     <MESSAGE value="added comments" />
     <MESSAGE value="added like button" />
-    <option name="LAST_COMMIT_MESSAGE" value="added like button" />
+    <MESSAGE value="changed the code a little" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the code a little" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -817,26 +824,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/css/style.css">
+    <entry file="file://$PROJECT_DIR$/app/public/js/foodstuffs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.423077">
-          <caret line="339" column="11" selection-start-line="339" selection-start-column="1" selection-end-line="339" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="191" column="14" selection-start-line="191" selection-start-column="14" selection-end-line="191" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/public/js/foodstuffs.js">
+    <entry file="file://$PROJECT_DIR$/app/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="30" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="30" />
+          <caret line="413" column="24" selection-start-line="413" selection-start-column="24" selection-end-line="413" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44186047">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.82848835">
+          <caret line="72" column="87" selection-start-line="72" selection-start-column="87" selection-end-line="72" selection-end-column="87" />
           <folding />
         </state>
       </provider>

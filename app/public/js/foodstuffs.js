@@ -140,12 +140,7 @@ app.controller('controller',function($scope,$http){
                 for (var j = 0 ; j < 3 ; j++) {
                     $scope.recipes.days[i].meals[j].pressedDirections = false;
                     $scope.recipes.days[i].meals[j].pressedIngredients = false;
-                    if ($scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1 ) {
-                        $scope.recipes.days[i].meals[j].likedMeal = 'likeFill';
-                    }
-                    else {
-                        $scope.recipes.days[i].meals[j].likedMeal = '';
-                    }
+                    $scope.recipes.days[i].meals[j].likedMeal = $scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1;
                 }
             }
 
@@ -191,11 +186,11 @@ app.controller('controller',function($scope,$http){
     $scope.likeAMeal = function(meal) {
         var mealNameIndex = $scope.user.likes.indexOf(meal.name);
         if (mealNameIndex > -1 ) {
-            meal.likedMeal = '';
+            meal.likedMeal = false;
             $scope.user.likes.splice(mealNameIndex,1);
         }
         else {
-            meal.likedMeal = 'likeFill';
+            meal.likedMeal = true;
             $scope.user.likes.push(meal.name);
         }
         console.log($scope.user.likes);

@@ -70,8 +70,8 @@
                             <span class="recipeName">{{meal.name}}</span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>
-                            <span class="like" ng-class="meal.likedMeal"
-                                    ng-click="likeAMeal(meal)"></span>
+                            <span class="likeFill" ng-class="{'liked' : meal.likedMeal}"></span>
+                            <span class="like" ng-click="likeAMeal(meal)"></span>
                         </section>
 
                         <!-- the buttons of each bottom section -->

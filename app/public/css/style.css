@@ -271,6 +271,7 @@ nav {
     top: 94px;
     text-align: center;
     line-height: 3.5;
+    cursor: pointer;
 }
 
 .ingredients-btn {
@@ -382,10 +383,35 @@ footer {
     position: absolute;
     bottom: 64px;
     right: 64px;
+    cursor: pointer;
 }
 
 .likeFill {
     background-image: url("../images/heart_p.png");
+    display: inline-block;
+    width: 111px;
+    height: 98px;
+    position: absolute;
+    bottom: 64px;
+    right: 64px;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -ms-transition: transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+}
+
+.likeFill.liked{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
 
 .bottomContainer {
