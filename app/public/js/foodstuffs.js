@@ -143,7 +143,9 @@ app.controller('controller',function($scope,$http){
             $scope.recipes.days[0].hide = false;
             $scope.selectDay(0);
 
+
         });
+        $scope.darkBG = true;
         $scope.headerTitle = "Recipes";
         $scope.foodstuffsHide = true;
         $scope.recipesSectionHide = false;
@@ -152,6 +154,7 @@ app.controller('controller',function($scope,$http){
 
     //to return to the category menu
     $scope.foodstuffsClick = function() {
+        $scope.darkBG = true;
         $scope.headerTitle = "FoodStuffs";
         $scope.foodstuffsHide = false;
         $scope.recipesSectionHide = true;
