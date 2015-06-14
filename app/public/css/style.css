@@ -119,9 +119,8 @@ header > a:hover {
     cursor: pointer;
 }
 
-#rightArrow:hover , #leftArrow:hover {
-    filter: brightness(1.2);
-    -webkit-filter: brightness(1.2);
+span:active ,input:active {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .switch {
