@@ -7,14 +7,14 @@ var user = {id: 1,likes: []};
 //before the app start we get the ingredient from the web server
 //each item will represent a page of category that will be hidden with the hide directive
 app.run(function($http){
-    $http.get("http://localhost:8000/get-ingredients").success(function(data){
+    $http.get("https://foodws-yonit.herokuapp.com/get-ingredients").success(function(data){
         ingredients.items = data;
         angular.forEach(ingredients.items,function(item){
             item.hide = true;
         });
         ingredients.items[0].hide = false;
     });
-    $http.get("http://localhost:8000/get-likes?user_id=" + user.id).success(function(data){
+    $http.get("https://foodws-yonit.herokuapp.com/get-likes?user_id=" + user.id).success(function(data){
         user.likes = data;
     });
 });
@@ -25,6 +25,9 @@ var ingredientsArray = [];
 
 //main controller of the application
 app.controller('controller',function($scope,$http){
+
+    $scope.darkBG = true;
+
     //app user
     $scope.user = user;
 
@@ -110,7 +113,7 @@ app.controller('controller',function($scope,$http){
     //the days will be hidden except one
     $scope.recipesClick = function() {
         $http({
-            url: "http://localhost:8000/get-recipes",
+            url: "https://foodws-yonit.herokuapp.com/get-recipes",
             method: "GET",
             params: {ingredients : ingredientsArray}
         }).success(function(data) {
@@ -188,7 +191,7 @@ app.controller('controller',function($scope,$http){
         }
         console.log($scope.user.likes);
         $http({
-            url: "http://localhost:8000/add-likes",
+            url: "https://foodws-yonit.herokuapp.com/add-likes",
             method: "GET",
             params: {user_id: $scope.user.id, likes: $scope.user.likes}
         }).success(function(data) {});

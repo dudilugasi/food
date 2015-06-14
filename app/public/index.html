@@ -11,12 +11,12 @@
     <script src="js/lib/jquery/jquery-ui.min.js"></script>
     <script src="js/init.js"></script>
 </head>
-<body ng-cloak="true">
-    <div id="wrapper" ng-controller="controller">
+<body ng-controller="controller" ng-cloak="true" ng-class="{'lockScreen': !darkBG}">
+    <div id="wrapper">
 
         <!-- header with title and side bar button -->
         <header>
-            <a href="#" id="button"></a>
+            <a href="#" id="button" ng-click="darkBG = false"></a>
             <span id="headerTitle">{{headerTitle}}</span>
         </header>
 
@@ -115,8 +115,9 @@
         </main>
 
         <!-- side bar menu -->
+        <section id="darkBG" ng-hide="darkBG"></section>
         <nav>
-            <span id="navLogo"></span>
+            <span id="navLogo" ng-click="darkBG = true"></span>
             <a href="#" class="navOption" ng-click="foodstuffsClick()">FoodStuffs</a>
             <a href="#" class="navOption" ng-click="recipesClick()">Recipes</a>
             <a href="#" class="navOption">Black List</a>

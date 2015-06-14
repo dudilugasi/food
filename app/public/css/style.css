@@ -168,7 +168,7 @@ input.toggle:checked + label:before {
 nav {
     background-color: #fff;
     width: 438px;
-    height: 1849px;
+    height: 100%;
     position: fixed;
     z-index: 1000;
     display: none;
@@ -427,4 +427,18 @@ footer {
 
 .bottomContainer.bottomHide {
     height: 0;
+}
+
+#darkBG {
+    position: fixed;
+    top: 0;
+    background-color: black;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+}
+
+.lockScreen {
+    overflow: hidden;
 }
