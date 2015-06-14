@@ -20,6 +20,11 @@ app.run(function($http){
 });
 
 //this array will hold the ingredients the user do not want in his food
+
+
+
+
+
 var ingredientsArray = [];
 
 
@@ -34,10 +39,10 @@ app.controller('controller',function($scope,$http){
     //title of the header
     $scope.headerTitle = "FoodStuffs";
 
-    //will hide/show the categories page
+    //will hide/show the categories page.
     $scope.foodstuffsHide = false;
 
-    //will hide/show the recipes page
+    //will hide/show the recipes page.
     $scope.recipesSectionHide = true;
 
     //the day that is displayed
