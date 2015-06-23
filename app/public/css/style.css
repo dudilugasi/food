@@ -16,7 +16,7 @@ section, main, nav {
 main {
     position: relative;
     min-height: 1681px;
-    background-color: #cccccc;
+    background-color: #f0d5c0;
     padding-bottom: 144px;
     padding-top: 168px;
 }
@@ -29,7 +29,7 @@ main {
 
 header {
     height: 168px;
-    background-color: #4d4d4d;
+    background-color: #d78069;
     position: fixed;
     width: 1080px;
     z-index: 100;
@@ -42,7 +42,7 @@ header {
 
 #dotsSection {
     height: 88px;
-    background-color: #e6e6e6;
+    background-color: #f7f0e7;
     text-align: center;
 }
 
@@ -66,7 +66,8 @@ header > a:hover {
     position: absolute;
     top: 42px;
     left: 171px;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 #dotsSection > section {
@@ -78,22 +79,25 @@ header > a:hover {
 .dot {
     width: 14px;
     height: 14px;
-    border: solid 1px #4d4d4d;
+    border: solid 1px #ac8c6d;
+    border-radius: 7px;
     float: left;
     margin: 0 8px 0 8px;
 }
 
 .coloredDot {
-    background-color: #4d4d4d;
+    background-color: #ac8c6d;
 }
 
 #category {
     font-size: 53px;
-    color: #444;
+    color: #d78069;
     position: relative;
     top: 44px;
     text-align: center;
     margin-bottom: 92px;
+    font-weight: 700;
+    font-family: 'Rokkitt', serif;
 }
 
 #leftArrow {
@@ -139,8 +143,11 @@ input.toggle + label {
     outline: none;
     user-select: none;
     width: 856px;
-    height: 128px;
+    height: 124px;
     margin: 0 auto;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 input.toggle + label:before {
@@ -153,7 +160,7 @@ input.toggle + label:before {
     content: attr(data-on);
     text-align: center;
     line-height: 2.5;
-    color: #444444;
+    color: #8c6239;
     font-size: 48px;
     background-image: url('../images/swipe-button.png');
     background-position: right;
@@ -187,7 +194,7 @@ nav {
 
 .navOption {
     display: block;
-    color: #444;
+    color: #d78069;
     font-size: 46px;
     font-weight: 500;
     position: relative;
@@ -211,11 +218,13 @@ nav {
 }
 
 .meal {
-    color: #444;
-    font-size: 52px;
+    color: #d78069;
+    font-size: 60px;
     position: relative;
     left: 113px;
     top: 46px;
+    font-family: 'Rokkitt', sans-serif;
+    font-weight: 700;
 }
 
 .bell {
@@ -234,13 +243,15 @@ nav {
     width: 100px;
     height: 48px;
     display: inline-block;
-    background-color: #000;
+    background-color: #d78069;
     color: #fff;
     font-size: 36px;
     position: absolute;
     top: 57px;
     left: 864px;
     text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
 }
 
 .recipeImage {
@@ -260,9 +271,9 @@ nav {
 .recipe-btn {
     width: 482px;
     height: 146px;
-    background-color: #f2f2f2;
-    border: solid 3px #666;
-    color: #333;
+    background-color: #fff;
+    border: solid 3px #c8a78a;
+    color: #cfbfb3;
     font-size: 40px;
     float: left;
     z-index: 99;
@@ -271,6 +282,8 @@ nav {
     text-align: center;
     line-height: 3.5;
     cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
 }
 
 .ingredients-btn {
@@ -278,32 +291,39 @@ nav {
 }
 
 .recipeName {
-    font-size: 52px;
-    color: #444;
+    font-size: 65px;
+    color: #fff;
     position: absolute;
     bottom: 112px;
     left: 61px;
     width: 600px;
+    font-family: 'Rokkitt', sans-serif;
+    font-weight: 400;
+
 }
 
 .recipeTimeToMake {
     position: absolute;
     left: 61px;
     bottom: 52px;
-    font-size: 42px;
-    color: #444;
+    font-size: 36px;
+    color: #fff;
     background: url("../images/navIcon.png") no-repeat left center;
     padding-left: 58px;
+    font-family: 'Rokkitt', sans-serif;
+    font-weight: 300;
 }
 
 .recipeServes {
     position: absolute;
     left: 388px;
     bottom: 52px;
-    font-size: 42px;
-    color: #444;
+    font-size: 36px;
+    color: #fff;
     background: url("../images/navIcon.png") no-repeat left center;
     padding-left: 58px;
+    font-family: 'Rokkitt', sans-serif;
+    font-weight: 300;
 }
 
 ul {
@@ -329,7 +349,7 @@ footer > ul > li > a{
 
 footer {
     height: 144px;
-    background-color: #000;
+    background-color: #a07954;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -342,25 +362,28 @@ footer {
 }
 
 .pressed-btn {
-    background-color: #999;
-    border: solid 3px #999;
+    background-color: #c8a78a;
+    border: solid 3px #c8a78a;
     color: #fff;
 }
 
 .bottom {
     width: 976px;
     height: 627px;
-    background-color: #999;
+    background-color: #c8a78a;
     margin: 0 auto;
     overflow: auto;
 }
 
 .bottom-row {
     width: 928px;
-    color: #444;
+    color: #c8a78a;
     background-color: #fff;
     font-size: 42px;
     margin: 24px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 .bottom-row > p {
