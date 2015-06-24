@@ -55,6 +55,15 @@ header > a {
     left: 52px;
 }
 
+#recipeMenuLogo{
+    background-image: url('../images/recipe_icon.png');
+    width: 93px;
+    height: 89px;
+    position: absolute;
+    left:934px;
+    top: 39px;
+}
+
 
 #headerTitle {
     color: #fff;
@@ -186,7 +195,7 @@ nav {
     width: 390px;
     height: 390px;
     padding: 24px;
-    margin-bottom: 11px;
+    margin-bottom: 50px;
 }
 
 .navOption {
@@ -196,16 +205,32 @@ nav {
     position: relative;
     text-decoration: none;
     left: 52px;
-    background: url('../images/navIcon.png') no-repeat left center;
     padding-left: 56px;
     margin-bottom: 36px;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 600;
 }
 
+.foodStuffOption{
+    background: url('../images/foodstuff_menu_icon.png') no-repeat left center;
+}
+
+.recipesOption{
+    background: url('../images/recipe_menu_icon.png') no-repeat left center;
+}
+
+.blackListOption{
+    background: url('../images/blacklist_menu_icon.png') no-repeat left center;
+}
+
+.settingOption{
+    background: url('../images/settings_menu_icon.png') no-repeat left center;
+}
+
 #exitOption {
     position: absolute;
-    bottom: 62px;
+    bottom: 60px;
+    background: url('../images/exit_menu_icon.png') no-repeat left center;
 }
 
 .recipe {
@@ -308,7 +333,7 @@ nav {
     color: #fff;
     background: url("../images/time-icon.png") no-repeat left center;
     padding-left: 58px;
-    font-family: 'Rokkitt', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 300;
 }
 
@@ -320,7 +345,7 @@ nav {
     color: #fff;
     background: url("../images/plate-icon.png") no-repeat left center;
     padding-left: 58px;
-    font-family: 'Rokkitt', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 300;
 }
 
@@ -340,7 +365,7 @@ footer > ul > li {
 }
 
 footer > ul > li > a{
-    color : #999;
+    color : #c0a894;
     font-size: 68px;
     font-family: 'Roboto', sans-serif;
     padding: 0 28px 0 28px;

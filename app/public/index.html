@@ -20,6 +20,7 @@
         <header>
             <a href="#" id="button" ng-click="darkBG = false"></a>
             <span id="headerTitle">{{headerTitle}}</span>
+            <a href="#" id="recipeMenuLogo" ng-click="recipesClick()" ng-hide="mainLogo"></a>
         </header>
 
         <main>
@@ -120,10 +121,10 @@
         <section id="darkBG" ng-hide="darkBG"></section>
         <nav>
             <span id="navLogo" ng-click="darkBG = true"></span>
-            <a href="#" class="navOption" ng-click="foodstuffsClick()">FoodStuffs</a>
-            <a href="#" class="navOption" ng-click="recipesClick()">Recipes</a>
-            <a href="#" class="navOption">Black List</a>
-            <a href="#" class="navOption">Settings</a>
+            <a href="#" class="navOption foodStuffOption" ng-click="foodstuffsClick()">FoodStuffs</a>
+            <a href="#" class="navOption recipesOption" ng-click="recipesClick()">Recipes</a>
+            <a href="#" class="navOption blackListOption">Black List</a>
+            <a href="#" class="navOption settingOption">Settings</a>
             <a href="#" id="exitOption" class="navOption">Exit</a>
         </nav>
     </div>

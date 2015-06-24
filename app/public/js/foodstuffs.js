@@ -42,6 +42,9 @@ app.controller('controller',function($scope,$http){
     //will hide/show the categories page.
     $scope.foodstuffsHide = false;
 
+    //will hide/show the main logo.
+    $scope.mainLogo = false;
+
     //will hide/show the recipes page.
     $scope.recipesSectionHide = true;
 
@@ -150,6 +153,7 @@ app.controller('controller',function($scope,$http){
 
 
         });
+        $scope.mainLogo = true;
         $scope.darkBG = true;
         $scope.headerTitle = "Recipes";
         $scope.foodstuffsHide = true;
@@ -159,6 +163,7 @@ app.controller('controller',function($scope,$http){
 
     //to return to the category menu
     $scope.foodstuffsClick = function() {
+        $scope.mainLogo = false;
         $scope.darkBG = true;
         $scope.headerTitle = "FoodStuffs";
         $scope.foodstuffsHide = false;
