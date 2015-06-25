@@ -488,3 +488,112 @@ footer {
 .lockScreen {
     overflow: hidden;
 }
+
+#timepicker{
+    height: 737px;
+    width: 849px;
+    background-color: #f8f5f1;
+    text-align: center;
+    position:fixed;
+    top: 226px;
+    left: 117px;
+    z-index: 1000;
+}
+
+#mealTimeTitle{
+    color: #8c6239;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 52px;
+    display: inline-block;
+    position: relative;
+    top: 68px;
+}
+
+#leftTopArrow{
+    background-image: url("../images/time_top_arrow.png");
+    height: 22px;
+    width: 38px;
+    display: inline-block;
+    position: absolute;
+    top: 186px;
+    left: 238px;
+}
+
+#leftBottomArrow{
+    background-image: url("../images/time_bottom_arrow.png");
+    height: 22px;
+    width: 38px;
+    display: inline-block;
+    position: absolute;
+    left: 238px;
+    bottom: 218px;
+
+}
+
+#rightTopArrow{
+    background-image: url("../images/time_top_arrow.png");
+    height: 22px;
+    width: 38px;
+    display: inline-block;
+    position: absolute;
+    top: 186px;
+    right: 236px;
+}
+
+#rightBottomArrow{
+    background-image: url("../images/time_bottom_arrow.png");
+    height: 22px;
+    width: 38px;
+    display: inline-block;
+    position: absolute;
+    right: 236px;
+    bottom: 218px;
+}
+
+#timePickerTime{
+    color: #caac91;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+    font-size: 248px;
+    position: absolute;
+    top:160px;
+    right: 123px;
+
+}
+
+#doneTimepicker{
+    height: 80px;
+    width: 300px;
+    background-color: #d78069;
+    position: absolute;
+    left: 112px;
+    bottom: 71px;
+    font-size: 40px;
+    color: #fff;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+
+}
+
+#cancelTimepicker{
+    height: 80px;
+    width: 300px;
+    background-color: #d78069;
+    position: absolute;
+    right: 112px;
+    bottom: 71px;
+    font-size: 40px;
+    color: #fff;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+}
+
+#cancelTimepicker > p {
+    position: relative;
+    top:8px;
+}
+
+#doneTimepicker > p {
+    position: relative;
+    top: 8px;
+}

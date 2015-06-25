@@ -60,6 +60,20 @@
             <!-- the page of the recipes will be hidden when on the ingredients page-->
             <section id="recipesSection"  ng-hide="recipesSectionHide">
 
+                <!-- the timepicker -->
+                <section id="timepicker">
+                    <span id="mealTimeTitle">{{mealTimeTitle}} meal time</span>
+                    <span id="leftTopArrow"></span>
+                    <span id="rightTopArrow"></span>
+                    <span id="leftBottomArrow"></span>
+                    <span id="rightBottomArrow"></span>
+                    <section id="timePickerTime">{{mealTimeTime}} 08:00</section>
+                    <section id="doneTimepicker"><p>DONE</p></section>
+                    <section id="cancelTimepicker"><p>CANCEL</p></section>
+
+
+
+                </section>
                 <!-- each day is a section that have three meals -->
                 <!-- one day is shown while all the others are hidden -->
                 <section ng-repeat="day in recipes.days" ng-hide="day.hide">

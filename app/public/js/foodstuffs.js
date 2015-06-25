@@ -2,7 +2,7 @@ var app = angular.module('food',['ngAnimate']);
 
 var ingredients = {items: []};
 
-var user = {id: 1,likes: []};
+var user = {id: 1,likes: [],blocked:[]};
 
 //before the app start we get the ingredient from the web server
 //each item will represent a page of category that will be hidden with the hide directive
@@ -14,8 +14,9 @@ app.run(function($http){
         });
         ingredients.items[0].hide = false;
     });
-    $http.get("https://foodws-yonit.herokuapp.com/get-likes?user_id=" + user.id).success(function(data){
-        user.likes = data;
+    $http.get("https://foodws-yonit.herokuapp.com/get-user?user_id=" + user.id).success(function(data){
+        user.likes = data.likes;
+        user.blocked = data.blocked;
     });
 });
 
@@ -207,6 +208,21 @@ app.controller('controller',function($scope,$http){
             url: "https://foodws-yonit.herokuapp.com/add-likes",
             method: "GET",
             params: {user_id: $scope.user.id, likes: $scope.user.likes}
+        }).success(function(data) {});
+    };
+
+    //if the user blocks a meal
+    //the name of the meal will be added to the blocked array
+    //and the db will be updated
+    $scope.blockAMeal = function(meal) {
+            meal.blockedMeal = true;
+            $scope.user.blocked.push(meal.name);
+
+        console.log($scope.user.blocked);
+        $http({
+            url: "https://foodws-yonit.herokuapp.com/add-blocked",
+            method: "GET",
+            params: {user_id: $scope.user.id, blocked: $scope.user.blocked}
         }).success(function(data) {});
     };
 });
