@@ -32,6 +32,8 @@ var ingredientsArray = [];
 //main controller of the application
 app.controller('controller',function($scope,$http){
 
+    $scope.mealTimeTime = "";
+
     $scope.darkBG = true;
 
     //app user
@@ -45,6 +47,9 @@ app.controller('controller',function($scope,$http){
 
     //will hide/show the main logo.
     $scope.mainLogo = false;
+
+    //will hide/show the timepicker
+    $scope.timePicker = true;
 
     //will hide/show the recipes page.
     $scope.recipesSectionHide = true;
@@ -146,6 +151,18 @@ app.controller('controller',function($scope,$http){
                     $scope.recipes.days[i].meals[j].pressedDirections = false;
                     $scope.recipes.days[i].meals[j].pressedIngredients = false;
                     $scope.recipes.days[i].meals[j].likedMeal = $scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1;
+                    switch(j){
+                        case 0:
+                            $scope.recipes.days[i].meals[j].time = "08:00";
+                            break;
+                        case 1:
+                            $scope.recipes.days[i].meals[j].time = "13:00";
+                            break;
+                        case 2:
+                            $scope.recipes.days[i].meals[j].time = "18:00";
+                            break;
+                    }
+
                 }
             }
 
@@ -225,4 +242,89 @@ app.controller('controller',function($scope,$http){
             params: {user_id: $scope.user.id, blocked: $scope.user.blocked}
         }).success(function(data) {});
     };
+
+    //timepicker logic
+    $scope.clickArrowUpMin = function(){
+        console.log("im here mother fucker");
+        var timeArray = $scope.mealTimeTime.split(":");
+        var min = parseInt(timeArray[1]);
+        if(min == 59){
+            min = 0;
+        }else{
+            min++;
+        }
+        if(min>=0 && min <=9){
+            $scope.mealTimeTime = timeArray[0] + ":" + "0" + min;
+        }else{
+            $scope.mealTimeTime = timeArray[0] + ":" + min;
+        }
+
+
+    };
+    $scope.clickArrowDownMin = function(){
+        var timeArray = $scope.mealTimeTime.split(":");
+        var min = parseInt(timeArray[1]);
+        if(min == 0){
+            min = 59;
+        }else{
+            min--;
+        }
+        if(min>=0 && min <=9){
+            $scope.mealTimeTime = timeArray[0] + ":" + "0" + min;
+        }else{
+            $scope.mealTimeTime = timeArray[0] + ":" + min;
+        }
+    };
+    $scope.clickArrowUpHour = function(){
+        var timeArray = $scope.mealTimeTime.split(":");
+        var hour = parseInt(timeArray[0]);
+        if(hour == 23){
+            hour = 0;
+        }else{
+            hour++;
+        }
+        if(hour>=0 && hour <=9){
+            $scope.mealTimeTime = "0" + hour + ":" + timeArray[1];
+        }else{
+            $scope.mealTimeTime = hour + ":" + timeArray[1];
+        }
+
+    };
+    $scope.clickArrowDownHour = function(){
+        var timeArray = $scope.mealTimeTime.split(":");
+        var hour = parseInt(timeArray[0]);
+        if(hour == 0){
+            hour = 23;
+        }else{
+            hour--;
+        }
+        if(hour>=0 && hour <=9){
+            $scope.mealTimeTime = "0" + hour + ":" + timeArray[1];
+        }else{
+            $scope.mealTimeTime = hour + ":" + timeArray[1];
+        }
+    };
+
+    $scope.setTime = function(i, j){
+        $scope.timePicker = false;
+        $scope.darkBG = false;
+        $scope.mealTimeTime =  $scope.recipes.days[i].meals[j].time;
+        $scope.mealTimeTitle = $scope.recipes.days[i].meals[j].meal.charAt(0).toUpperCase()
+            + $scope.recipes.days[i].meals[j].meal.slice(1);
+        $scope.clockI = i;
+        $scope.clockJ = j;
+    };
+
+    $scope.cancelTimepicker = function(){
+        $scope.timePicker = true;
+        $scope.darkBG = true;
+    };
+
+    $scope.doneTimepicker = function(){
+        $scope.recipes.days[$scope.clockI].meals[$scope.clockJ].time = $scope.mealTimeTime;
+        $scope.timePicker = true;
+        $scope.darkBG = true;
+
+    }
+
 });

@@ -517,6 +517,7 @@ footer {
     position: absolute;
     top: 186px;
     left: 238px;
+    z-index: 1001;
 }
 
 #leftBottomArrow{
@@ -527,6 +528,7 @@ footer {
     position: absolute;
     left: 238px;
     bottom: 218px;
+    z-index: 1001;
 
 }
 
@@ -538,6 +540,7 @@ footer {
     position: absolute;
     top: 186px;
     right: 236px;
+    z-index: 1001;
 }
 
 #rightBottomArrow{
@@ -548,6 +551,7 @@ footer {
     position: absolute;
     right: 236px;
     bottom: 218px;
+    z-index: 1001;
 }
 
 #timePickerTime{
