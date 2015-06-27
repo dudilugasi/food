@@ -245,7 +245,6 @@ app.controller('controller',function($scope,$http){
 
     //timepicker logic
     $scope.clickArrowUpMin = function(){
-        console.log("im here mother fucker");
         var timeArray = $scope.mealTimeTime.split(":");
         var min = parseInt(timeArray[1]);
         if(min == 59){
