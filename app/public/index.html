@@ -84,7 +84,7 @@
                         <span class="meal">{{meal.meal.toUpperCase()}}</span>
                         <span class="bell"></span>
                         <span class="time" ng-click="setTime($parent.$index, $index)">{{meal.time}}</span>
-                        <section class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
+                        <section ng-style="{ 'backgroundImage': 'url({{meal.image}})' }" class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
                             <span class="recipeName">{{meal.name}}</span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>
