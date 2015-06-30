@@ -176,7 +176,12 @@ app.controller('controller',function($scope,$http){
         $scope.headerTitle = "Recipes";
         $scope.foodstuffsHide = true;
         $scope.recipesSectionHide = false;
-        $('nav').hide('slide',300);
+        var windowSize = $(window).width();
+        if (windowSize > 1081) {
+            $('nav').show('slide',300);
+        }else {
+            $('nav').hide('slide', 300);
+        }
     };
 
     //to return to the category menu
@@ -186,7 +191,12 @@ app.controller('controller',function($scope,$http){
         $scope.headerTitle = "FoodStuffs";
         $scope.foodstuffsHide = false;
         $scope.recipesSectionHide = true;
-        $('nav').hide('slide',300);
+        var windowSize = $(window).width();
+        if (windowSize > 1081) {
+            $('nav').show('slide',300);
+        }else {
+            $('nav').hide('slide', 300);
+        }
     };
 
 
