@@ -153,13 +153,13 @@ app.controller('controller',function($scope,$http){
                     $scope.recipes.days[i].meals[j].likedMeal = $scope.user.likes.indexOf($scope.recipes.days[i].meals[j].name) > -1;
                     switch(j){
                         case 0:
-                            $scope.recipes.days[i].meals[j].time = "08:00";
+                            $scope.recipes.days[i].meals[j].timepickertime = "08:00";
                             break;
                         case 1:
-                            $scope.recipes.days[i].meals[j].time = "13:00";
+                            $scope.recipes.days[i].meals[j].timepickertime = "13:00";
                             break;
                         case 2:
-                            $scope.recipes.days[i].meals[j].time = "18:00";
+                            $scope.recipes.days[i].meals[j].timepickertime = "18:00";
                             break;
                     }
 
@@ -317,7 +317,7 @@ app.controller('controller',function($scope,$http){
     $scope.setTime = function(i, j){
         $scope.timePicker = false;
         $scope.darkBG = false;
-        $scope.mealTimeTime =  $scope.recipes.days[i].meals[j].time;
+        $scope.mealTimeTime =  $scope.recipes.days[i].meals[j].timepickertime;
         $scope.mealTimeTitle = $scope.recipes.days[i].meals[j].meal.charAt(0).toUpperCase()
             + $scope.recipes.days[i].meals[j].meal.slice(1);
         $scope.clockI = i;
@@ -330,7 +330,7 @@ app.controller('controller',function($scope,$http){
     };
 
     $scope.doneTimepicker = function(){
-        $scope.recipes.days[$scope.clockI].meals[$scope.clockJ].time = $scope.mealTimeTime;
+        $scope.recipes.days[$scope.clockI].meals[$scope.clockJ].timepickertime = $scope.mealTimeTime;
         $scope.timePicker = true;
         $scope.darkBG = true;
 
