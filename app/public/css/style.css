@@ -618,6 +618,7 @@ section, main, nav {
 
     .scaleSmall{
         transform: scale(0.75, 0.75);
+        margin-top: 73px;
     }
 
     #addBlockList{
@@ -625,6 +626,8 @@ section, main, nav {
         font-family: 'Titillium Web', sans-serif;
         color: #8c6239;
         margin-left: 278px;
+        display: inline-block;
+        margin-top: 17px;
     }
 
     #blockDone{
@@ -653,6 +656,19 @@ section, main, nav {
         margin-left:24px;
         margin-top:43px;
         line-height: 2;
+    }
+
+    .blockMeal{
+        top: 218px;
+    }
+
+    .blockBell{
+        top: 235px;
+    }
+
+    .blockTime{
+        top: 225px;
+
     }
 
 

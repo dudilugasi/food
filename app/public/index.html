@@ -75,9 +75,9 @@
 
 
                 <section id="blockPage" ng-hide="blockPageHide">
-                    <span class="meal">{{blockPageRecipe.meal.toUpperCase()}}</span>
-                    <span class="bell"></span>
-                    <span class="time">{{blockPageRecipe.timepickertime}}</span>
+                    <span class="meal blockMeal">{{blockPageRecipe.meal.toUpperCase()}}</span>
+                    <span class="bell blockBell"></span>
+                    <span class="time blockTime">{{blockPageRecipe.timepickertime}}</span>
                     <section class="scaleSmall">
                         <section  class="recipeImage" ng-style="{ 'backgroundImage': 'url(' + blockPageRecipe.image + ')' }">
                             <span class="recipeName">{{blockPageRecipe.name}}</span>
@@ -94,8 +94,8 @@
                         <div class="clear"></div>
                     </section>
                     <span id="addBlockList">Add recipe to Black List?</span>
-                    <section id="blockDone">DONE</section>
-                    <section id="blockCancel">CANCEL</section>
+                    <section id="blockDone" ng-click="blockDone()">DONE</section>
+                    <section id="blockCancel" ng-click="blockCancel">CANCEL</section>
                     </section>
 
 
