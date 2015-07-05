@@ -4,6 +4,8 @@ var ingredients = {items: []};
 
 var user = {id: 1,likes: [],blocked:[]};
 
+
+
 //before the app start we get the ingredient from the web server
 //each item will represent a page of category that will be hidden with the hide directive
 app.run(function($http){
@@ -36,6 +38,9 @@ app.controller('controller',function($scope,$http){
 
     $scope.darkBG = true;
 
+    //recipe to appear on the block page
+    $scope.blockPageRecipe = {};
+
     //app user
     $scope.user = user;
 
@@ -44,6 +49,9 @@ app.controller('controller',function($scope,$http){
 
     //will hide/show the categories page.
     $scope.foodstuffsHide = false;
+
+    //will hide/show the block page.
+    $scope.blockPageHide = true;
 
     //will hide/show the main logo.
     $scope.mainLogo = false;
@@ -334,6 +342,12 @@ app.controller('controller',function($scope,$http){
         $scope.timePicker = true;
         $scope.darkBG = true;
 
-    }
+    };
+
+    $scope.openBlockPage = function(i, j){
+        $scope.blockPageRecipe = $scope.recipes.days[i].meals[j];
+        $scope.blockPageHide = false;
+    };
+
 
 });

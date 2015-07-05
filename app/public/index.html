@@ -71,10 +71,34 @@
                     <section id="timePickerTime">{{mealTimeTime}}</section>
                     <section id="doneTimepicker" ng-click="doneTimepicker()"><p>DONE</p></section>
                     <section id="cancelTimepicker" ng-click="cancelTimepicker()"><p>CANCEL</p></section>
-
-
-
                 </section>
+
+
+                <section id="blockPage" ng-hide="blockPageHide">
+                    <span class="meal">{{blockPageRecipe.meal.toUpperCase()}}</span>
+                    <span class="bell"></span>
+                    <span class="time">{{blockPageRecipe.timepickertime}}</span>
+                    <section class="scaleSmall">
+                        <section  class="recipeImage" ng-style="{ 'backgroundImage': 'url(' + blockPageRecipe.image + ')' }">
+                            <span class="recipeName">{{blockPageRecipe.name}}</span>
+                            <span class="recipeTimeToMake">{{blockPageRecipe.time}}</span>
+                            <span class="recipeServes">{{blockPageRecipe.serves}}</span>
+                            <span class="likeFill" ng-class="{'liked' : blockPageRecipe.likedMeal}"></span>
+                            <span class="like"></span>
+                        </section>
+
+
+                        <!-- the buttons of each bottom section -->
+                        <section class="ingredients-btn recipe-btn">INGREDIENTS</section>
+                        <section class="directions-btn recipe-btn">DIRECTIONS</section>
+                        <div class="clear"></div>
+                    </section>
+                    <span id="addBlockList">Add recipe to Black List?</span>
+                    <section id="blockDone">DONE</section>
+                    <section id="blockCancel">CANCEL</section>
+                    </section>
+
+
                 <!-- each day is a section that have three meals -->
                 <!-- one day is shown while all the others are hidden -->
                 <section ng-repeat="day in recipes.days" ng-hide="day.hide">
@@ -84,7 +108,7 @@
                         <span class="meal">{{meal.meal.toUpperCase()}}</span>
                         <span class="bell"></span>
                         <span class="time" ng-click="setTime($parent.$index, $index)">{{meal.timepickertime}}</span>
-                        <section ng-style="{ 'backgroundImage': 'url({{meal.image}})' }" class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
+                        <section ng-click="openBlockPage($parent.$index, $index)" ng-style="{ 'backgroundImage': 'url({{meal.image}})' }" class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
                             <span class="recipeName">{{meal.name}}</span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>

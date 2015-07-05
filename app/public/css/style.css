@@ -301,7 +301,7 @@ section, main, nav {
         color: #cfbfb3;
         font-size: 40px;
         float: left;
-        z-index: 99;
+        z-index: 98;
         position: relative;
         top: 94px;
         text-align: center;
@@ -606,6 +606,56 @@ section, main, nav {
         position: relative;
         top: 8px;
     }
+
+    #blockPage{
+        background-color:#f0d5c0;
+        width:100%;
+        height:100%;
+        position: fixed;
+        top:0;
+        z-index: 99;
+    }
+
+    .scaleSmall{
+        transform: scale(0.75, 0.75);
+    }
+
+    #addBlockList{
+        font-size: 52px;
+        font-family: 'Titillium Web', sans-serif;
+        color: #8c6239;
+        margin-left: 278px;
+    }
+
+    #blockDone{
+        height: 80px;
+        width: 300px;
+        color: #fff;
+        background-color:#d78069;
+        font-size: 40px;
+        font-family: 'Titillium Web', sans-serif;
+        text-align: center;
+        float:left;
+        margin-left: 228px;
+        margin-top:43px;
+        line-height: 2;
+    }
+
+    #blockCancel{
+        height: 80px;
+        width: 300px;
+        color: #fff;
+        background-color:#d78069;
+        font-size: 40px;
+        font-family: 'Titillium Web', sans-serif;
+        text-align: center;
+        float: left;
+        margin-left:24px;
+        margin-top:43px;
+        line-height: 2;
+    }
+
+
 }
 
 /* desktop view */
@@ -921,7 +971,7 @@ section, main, nav {
 
     .recipeServes {
         position: absolute;
-        left: 160px;
+        left: 220px;
         bottom: 52px;
         font-size: 25px;
         color: #fff;
