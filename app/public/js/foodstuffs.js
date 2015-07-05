@@ -31,6 +31,7 @@ app.run(function($http){
 var ingredientsArray = [];
 
 
+
 //main controller of the application
 app.controller('controller',function($scope,$http){
 
@@ -137,9 +138,10 @@ app.controller('controller',function($scope,$http){
         $http({
             url: "https://foodws-yonit.herokuapp.com/get-recipes",
             method: "GET",
-            params: {ingredients : ingredientsArray}
+            params: {ingredients : ingredientsArray, blockedRecipes: $scope.user.blocked}
         }).success(function(data) {
 
+            console.log(data);
             var breakfastArray = [];
             var lunchArray = [];
             var dinnerArray = [];
@@ -347,6 +349,16 @@ app.controller('controller',function($scope,$http){
     $scope.openBlockPage = function(i, j){
         $scope.blockPageRecipe = $scope.recipes.days[i].meals[j];
         $scope.blockPageHide = false;
+    };
+
+    $scope.blockDone = function(){
+        $scope.blockAMeal($scope.blockPageRecipe);
+        $scope.blockPageHide = true;
+        $scope.recipesClick();
+    };
+
+    $scope.blockCancel = function(){
+        $scope.blockPageHide = true;
     };
 
 
