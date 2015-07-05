@@ -685,6 +685,16 @@ section, main, nav {
         margin-top: 70px;
     }
 
+    #blackShade{
+        height: 899px;
+        width: 732px;
+        background-color: #000;
+        opacity: 0.5;
+        position: absolute;
+        top: 362px;
+        left: 174px;
+    }
+
 
 }
 

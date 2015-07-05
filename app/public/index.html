@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/lib/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/lib/jquery/jquery-ui.min.js"></script>
-    <script src="js/init.js"></script>
+
     <link rel="icon" type="image/png" href="images/Favico.png">
 </head>
 <body ng-controller="controller" ng-cloak="true" ng-class="{'lockScreen': !darkBG}">
@@ -19,7 +19,7 @@
 
         <!-- header with title and side bar button -->
         <header>
-            <a href="#" id="button" ng-click="darkBG = false"></a>
+            <a href="#" id="button" ng-click="darkBG = (drawerFlag == true ? false : true) "></a>
             <span id="headerTitle">{{headerTitle}}</span>
             <a href="#" id="recipeMenuLogo" ng-click="recipesClick()" ng-hide="mainLogo"></a>
         </header>
@@ -96,7 +96,10 @@
                     <span id="addBlockList">Add recipe to Black List?</span>
                     <section id="blockDone" ng-click="blockDone()">DONE</section>
                     <section id="blockCancel" ng-click="blockCancel()">CANCEL</section>
+                    <section id="blackShade"></section>
                     </section>
+
+
 
 
                 <!-- each day is a section that have three meals -->
@@ -143,7 +146,7 @@
                     </section>
 
                 </section>
-                <section id="goodNight">Good Night!</section>
+                <section id="goodNight" ng-hide="goodNightHide">Good Night!</section>
 
                 <!-- footer will be the navigation bar between the days  -->
                 <footer>

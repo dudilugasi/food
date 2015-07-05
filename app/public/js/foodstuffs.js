@@ -45,6 +45,9 @@ app.controller('controller',function($scope,$http){
     //app user
     $scope.user = user;
 
+    //will show/hide good night
+    $scope.goodNightHide = true;
+
     //title of the header
     $scope.headerTitle = "FoodStuffs";
 
@@ -56,6 +59,9 @@ app.controller('controller',function($scope,$http){
 
     //will hide/show the main logo.
     $scope.mainLogo = false;
+
+    //will disable/enable drawer
+    $scope.drawerFlag = true;
 
     //will hide/show the timepicker
     $scope.timePicker = true;
@@ -142,6 +148,7 @@ app.controller('controller',function($scope,$http){
         }).success(function(data) {
 
             console.log(data);
+            $scope.goodNightHide = false;
             var breakfastArray = [];
             var lunchArray = [];
             var dinnerArray = [];
@@ -197,6 +204,7 @@ app.controller('controller',function($scope,$http){
     //to return to the category menu
     $scope.foodstuffsClick = function() {
         $scope.mainLogo = false;
+        $scope.goodNightHide = true;
         $scope.darkBG = true;
         $scope.headerTitle = "FoodStuffs";
         $scope.foodstuffsHide = false;
@@ -252,8 +260,8 @@ app.controller('controller',function($scope,$http){
     //the name of the meal will be added to the blocked array
     //and the db will be updated
     $scope.blockAMeal = function(meal) {
-            meal.blockedMeal = true;
-            $scope.user.blocked.push(meal.name);
+        meal.blockedMeal = true;
+        $scope.user.blocked.push(meal.name);
 
         console.log($scope.user.blocked);
         $http({
@@ -349,17 +357,31 @@ app.controller('controller',function($scope,$http){
     $scope.openBlockPage = function(i, j){
         $scope.blockPageRecipe = $scope.recipes.days[i].meals[j];
         $scope.blockPageHide = false;
+        $scope.drawerFlag = false;
     };
 
     $scope.blockDone = function(){
         $scope.blockAMeal($scope.blockPageRecipe);
         $scope.blockPageHide = true;
+        $scope.drawerFlag = true;
         $scope.recipesClick();
     };
 
     $scope.blockCancel = function(){
         $scope.blockPageHide = true;
+        $scope.drawerFlag = true;
     };
+
+    $(document).ready(function(){
+        $('#button').click(function(){
+            if($scope.drawerFlag) {
+                $('nav').show('slide', 300);
+            }
+        });
+        $('#navLogo').click(function(){
+            $('nav').hide('slide',300);
+        });
+    });
 
 });
 
@@ -396,4 +418,6 @@ app.directive('onLongPress', function($timeout) {
             });
         }
     };
-})
+});
+
+
