@@ -12,7 +12,7 @@ section, main, nav {
 
 }
 
-@media all and (max-width: 1080px) {
+@media all and (max-width: 360px) {
 
     main {
         position: relative;
@@ -618,6 +618,10 @@ section, main, nav {
 
     .scaleSmall{
         transform: scale(0.75, 0.75);
+        -webkit-transform: scale(0.75, 0.75);
+        -moz-transform: scale(0.75, 0.75);
+        -ms-transform: scale(0.75, 0.75);
+        -o-transform: scale(0.75, 0.75);
         margin-top: 73px;
     }
 
@@ -671,12 +675,22 @@ section, main, nav {
 
     }
 
+    #goodNight {
+        color: #d78069;
+        font-family: 'Rokkitt', serif;
+        font-weight: 700;
+        font-size: 60px;
+        height: 130px;
+        text-align:center;
+        margin-top: 70px;
+    }
+
 
 }
 
 /* desktop view */
 
-@media all and (min-width: 1081px){
+@media all and (min-width: 361px){
     main {
         position: relative;
         min-height: 1000px;
