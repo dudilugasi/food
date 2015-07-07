@@ -194,7 +194,7 @@ app.controller('controller',function($scope,$http){
         $scope.foodstuffsHide = true;
         $scope.recipesSectionHide = false;
         var windowSize = $(window).width();
-        if (windowSize > 1081) {
+        if (windowSize > 361) {
             $('nav').show('slide',300);
         }else {
             $('nav').hide('slide', 300);
@@ -210,7 +210,7 @@ app.controller('controller',function($scope,$http){
         $scope.foodstuffsHide = false;
         $scope.recipesSectionHide = true;
         var windowSize = $(window).width();
-        if (windowSize > 1081) {
+        if (windowSize > 361) {
             $('nav').show('slide',300);
         }else {
             $('nav').hide('slide', 300);
