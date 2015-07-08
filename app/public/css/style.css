@@ -1293,5 +1293,20 @@ section, main, nav {
 
         #goodNight { display: none;}
 
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: transparent;
+        }
 
     }
