@@ -729,15 +729,14 @@ section, main, nav {
 
         #foodstuffs {
             position: relative;
+            text-align: center;
         }
 
         #dotsSection {
             position: relative;
-            /* top: -112px; */
             height: 36px;
             background-color: #f7f0e7;
             text-align: center;
-
             margin-bottom: 53px;
         }
 
