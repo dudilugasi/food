@@ -9,7 +9,7 @@ var user = {id: 1,likes: [],blocked:[]};
 //before the app start we get the ingredient from the web server
 //each item will represent a page of category that will be hidden with the hide directive
 app.run(function($http){
-    $http.get("https://foodws-yonit.herokuapp.com/get-ingredients").success(function(data){
+    $http.get("https://foodws-yonit.herokuapp.com/ingredients").success(function(data){
         ingredients.items = data;
         angular.forEach(ingredients.items,function(item){
             item.hide = true;

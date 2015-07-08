@@ -38,12 +38,12 @@
 
                 <span id="leftArrow" ng-click="goLeft()"></span>
 
-                <section id="category">{{ingredients.items[currentPage].category}}</section>
+                <section id="category">{{ingredients.items[currentPage]._id.toUpperCase()}}</section>
 
                 <span id="rightArrow" ng-click="goRight()"></span>
 
                 <!-- each category is an ul one will be shown while the others are hidden -->
-                <ul ng-repeat="category in ingredients.items" id="{{category.category}}"
+                <ul ng-repeat="category in ingredients.items" id="{{category._id}}"
                     ng-hide="category.hide">
 
                     <!-- each ingredient is a custom checkbox -->
