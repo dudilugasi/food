@@ -396,6 +396,9 @@ section, main, nav {
         background-color: #c8a78a;
         border: solid 2px #c8a78a;
         color: #fff;
+        background-image: url('../images/open-btn-arrow.png');
+        background-repeat: no-repeat;
+        background-position: 224px 121px;
     }
 
     .bottom {
