@@ -179,7 +179,7 @@ section, main, nav {
     }
 
     nav {
-        background-color: #fff;
+        background-color: #f8f5f1;
         width: 438px;
         height: 100%;
         position: fixed;
@@ -203,7 +203,7 @@ section, main, nav {
     .navOption {
         display: block;
         color: #d78069;
-        font-size: 43px;
+        font-size: 48px;
         position: relative;
         text-decoration: none;
         left: 52px;
@@ -231,8 +231,10 @@ section, main, nav {
 
     #exitOption {
         position: absolute;
-        bottom: 60px;
+        bottom: 54px;
+        margin-bottom: 0;
         background: url('../images/exit_menu_icon.png') no-repeat left center;
+        background-position: 0 28px;
     }
 
     .recipe {
@@ -294,10 +296,10 @@ section, main, nav {
     }
 
     .recipe-btn {
-        width: 482px;
+        width: 485px;
         height: 146px;
-        background-color: #fff;
-        border: solid 3px #c8a78a;
+        background-color: #f8f5f1;
+        border: solid 2px #c8a78a;
         color: #cfbfb3;
         font-size: 40px;
         float: left;
@@ -313,6 +315,7 @@ section, main, nav {
 
     .ingredients-btn {
         margin-left: 52px;
+        border-right-width: 0;
     }
 
     .recipeName {
@@ -332,7 +335,7 @@ section, main, nav {
         left: 61px;
         bottom: 52px;
         font-size: 36px;
-        color: #fff;
+        color: #f2f2f2;
         background: url("../images/time-icon.png") no-repeat left center;
         padding-left: 58px;
         font-family: 'Titillium Web', sans-serif;
@@ -344,7 +347,7 @@ section, main, nav {
         left: 388px;
         bottom: 52px;
         font-size: 36px;
-        color: #fff;
+        color: #f2f2f2;
         background: url("../images/plate-icon.png") no-repeat left center;
         padding-left: 58px;
         font-family: 'Titillium Web', sans-serif;
@@ -391,7 +394,7 @@ section, main, nav {
 
     .pressed-btn {
         background-color: #c8a78a;
-        border: solid 3px #c8a78a;
+        border: solid 2px #c8a78a;
         color: #fff;
     }
 
@@ -404,18 +407,18 @@ section, main, nav {
     }
 
     .bottom-row {
-        width: 928px;
+        width: 900px;
         color: #c8a78a;
         background-color: #fff;
         font-size: 42px;
-        margin: 24px;
+        margin: 24px auto;
         font-family: 'Titillium Web', sans-serif;
         font-weight: 300;
         font-style: italic;
     }
 
     .bottom-row > p {
-        padding: 40px;
+        padding: 50px 40px;
     }
 
     .closedImage {
@@ -429,8 +432,8 @@ section, main, nav {
     .like {
         background-image: url("../images/heart.png");
         display: inline-block;
-        width: 111px;
-        height: 98px;
+        width: 119px;
+        height: 104px;
         position: absolute;
         bottom: 64px;
         right: 64px;
@@ -440,8 +443,8 @@ section, main, nav {
     .likeFill {
         background-image: url("../images/heart_p.png");
         display: inline-block;
-        width: 111px;
-        height: 98px;
+        width: 119px;
+        height: 104px;
         position: absolute;
         bottom: 64px;
         right: 64px;
@@ -680,9 +683,9 @@ section, main, nav {
         font-family: 'Rokkitt', serif;
         font-weight: 700;
         font-size: 60px;
-        height: 130px;
+        height: 118px;
         text-align:center;
-        margin-top: 70px;
+        margin-top: 38px;
     }
 
     #blackShade{
@@ -1106,8 +1109,8 @@ section, main, nav {
         .like {
             background-image: url("../images/heart.png");
             display: inline-block;
-            width: 111px;
-            height: 98px;
+            width: 119px;
+            height: 104px;
             position: absolute;
             top: 21px;
             right: 35px;
@@ -1117,8 +1120,8 @@ section, main, nav {
         .likeFill {
             background-image: url("../images/heart_p.png");
             display: inline-block;
-            width: 111px;
-            height: 98px;
+            width: 119px;
+            height: 104px;
             position: absolute;
             top: 21px;
             right: 35px;

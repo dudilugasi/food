@@ -49,7 +49,7 @@ app.controller('controller',function($scope,$http){
     $scope.goodNightHide = true;
 
     //title of the header
-    $scope.headerTitle = "FoodStuffs";
+    $scope.headerTitle = "Foodstuffs";
 
     //will hide/show the categories page.
     $scope.foodstuffsHide = false;
