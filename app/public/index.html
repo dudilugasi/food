@@ -163,8 +163,8 @@
         <section id="darkBG" ng-hide="darkBG"></section>
         <nav>
             <span id="navLogo" ng-click="darkBG = true"></span>
-            <a href="#" class="navOption foodStuffOption" ng-click="foodstuffsClick()">Foodstuffs</a>
-            <a href="#" class="navOption recipesOption" ng-click="recipesClick()">Recipes</a>
+            <a href="#" class="navOption foodStuffOption" ng-click="foodstuffsClick()" ng-class="{'currentPageArrow': recipesSectionHide}">Foodstuffs</a>
+            <a href="#" class="navOption recipesOption" ng-click="recipesClick()" ng-class="{'currentPageArrow': !recipesSectionHide}">Recipes</a>
             <a href="#" class="navOption blackListOption">Black List</a>
             <a href="#" class="navOption settingOption">Settings</a>
             <a href="#" id="exitOption" class="navOption">Exit</a>
