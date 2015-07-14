@@ -420,4 +420,12 @@ app.directive('onLongPress', function($timeout) {
     };
 });
 
+app.directive('html', [ function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.html(attrs.html);
+        }
+    }
+}]);
 

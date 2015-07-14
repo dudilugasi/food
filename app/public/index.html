@@ -113,7 +113,7 @@
                         <span class="time" ng-click="setTime($parent.$index, $index)">{{meal.timepickertime}}</span>
 
                         <section  on-long-press="openBlockPage($parent.$index, $index)" ng-style="{ 'backgroundImage': 'url({{meal.image}})' }" class="recipeImage" ng-class="{'closedImage': meal.pressedDirections || meal.pressedIngredients}">
-                            <span class="recipeName">{{meal.name}}</span>
+                            <span class="recipeName" html="{{meal.name}}"></span>
                             <span class="recipeTimeToMake">{{meal.time}}</span>
                             <span class="recipeServes">{{meal.serves}}</span>
                             <span class="likeFill" ng-class="{'liked' : meal.likedMeal}"></span>
