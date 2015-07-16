@@ -22,6 +22,11 @@ section, main, nav {
         padding-top: 168px;
     }
 
+    main.mainRecipes {
+        height: 4354px;
+        overflow-y: hidden;
+    }
+
     #wrapper {
         width: 1080px;
         height: 1849px;
@@ -739,10 +744,9 @@ section, main, nav {
         font-family: 'Rokkitt', serif;
         font-weight: 700;
         font-size: 60px;
-        height: 118px;
-        text-align:center;
-        margin-top: 38px;
-        margin-bottom: 61px;
+        position: absolute;
+        bottom: 195px;
+        left: 391px;
     }
 
     #blackShade{
@@ -753,6 +757,31 @@ section, main, nav {
         position: absolute;
         top: 362px;
         left: 174px;
+    }
+
+    .day {
+        position: absolute;
+        top: 170px;
+    }
+
+    .day.ng-hide-add {
+        -webkit-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+        left: 0;
+    }
+
+    .day.ng-hide-add-active {
+        left: -1080px;
+    }
+
+    .day.ng-hide-remove {
+        -webkit-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+        left: 1080px;
+    }
+
+    .day.ng-hide-remove-active {
+        left: 0;
     }
 
 

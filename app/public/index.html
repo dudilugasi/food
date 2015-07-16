@@ -19,12 +19,12 @@
 
         <!-- header with title and side bar button -->
         <header>
-            <a href="#" id="button" ng-click="darkBG = (drawerFlag == true ? false : true) "></a>
+            <a href="#" id="button" ng-click="darkBG = (drawerFlag!=true) "></a>
             <span id="headerTitle">{{headerTitle}}</span>
             <a href="#" id="recipeMenuLogo" ng-click="recipesClick()" ng-hide="mainLogo"></a>
         </header>
 
-        <main>
+        <main ng-class="{'mainRecipes' : foodstuffsHide}">
 
             <!-- the page of the categories -->
             <section id="foodstuffs"  ng-hide="foodstuffsHide">
@@ -61,50 +61,9 @@
             <!-- the page of the recipes will be hidden when on the ingredients page-->
             <section id="recipesSection"  ng-hide="recipesSectionHide">
 
-                <!-- the timepicker -->
-                <section id="timepicker" ng-hide="timePicker">
-                    <span id="mealTimeTitle">{{mealTimeTitle}} meal time</span>
-                    <span id="leftTopArrow" ng-click="clickArrowUpHour()"></span>
-                    <span id="rightTopArrow" ng-click="clickArrowUpMin()"></span>
-                    <span id="leftBottomArrow" ng-click="clickArrowDownHour()"></span>
-                    <span id="rightBottomArrow" ng-click="clickArrowDownMin()"></span>
-                    <section id="timePickerTime">{{mealTimeTime}}</section>
-                    <section id="doneTimepicker" ng-click="doneTimepicker()"><p>DONE</p></section>
-                    <section id="cancelTimepicker" ng-click="cancelTimepicker()"><p>CANCEL</p></section>
-                </section>
-
-
-                <section id="blockPage" ng-hide="blockPageHide">
-                    <span class="meal blockMeal">{{blockPageRecipe.meal.toUpperCase()}}</span>
-                    <span class="bell blockBell"></span>
-                    <span class="time blockTime">{{blockPageRecipe.timepickertime}}</span>
-                    <section class="scaleSmall">
-                        <section  class="recipeImage" ng-style="{ 'backgroundImage': 'url(' + blockPageRecipe.image + ')' }">
-                            <span class="recipeName">{{blockPageRecipe.name}}</span>
-                            <span class="recipeTimeToMake">{{blockPageRecipe.time}}</span>
-                            <span class="recipeServes">{{blockPageRecipe.serves}}</span>
-                            <span class="likeFill" ng-class="{'liked' : blockPageRecipe.likedMeal}"></span>
-                            <span class="like"></span>
-                        </section>
-
-
-                        <!-- the buttons of each bottom section -->
-                        <section class="ingredients-btn recipe-btn">INGREDIENTS</section>
-                        <section class="directions-btn recipe-btn">DIRECTIONS</section>
-                        <div class="clear"></div>
-                    </section>
-                    <span id="addBlockList">Add recipe to Black List?</span>
-                    <section id="blockDone" ng-click="blockDone()">DONE</section>
-                    <section id="blockCancel" ng-click="blockCancel()">CANCEL</section>
-                    <section id="blackShade"></section>
-                    </section>
-
-
-
-
                 <!-- each day is a section that have three meals -->
                 <!-- one day is shown while all the others are hidden -->
-                <section ng-repeat="day in recipes.days" ng-hide="day.hide">
+                <section ng-repeat="day in recipes.days" ng-hide="day.hide" class="day ng-hide">
 
                     <!-- each meal is a section with ingredients, direction and image sections -->
                     <section ng-repeat="meal in day.meals" class="recipe">
@@ -146,6 +105,44 @@
 
                 </section>
                 <section id="goodNight" ng-hide="goodNightHide">Good Night!</section>
+
+                <!-- the timepicker -->
+                <section id="timepicker" ng-hide="timePicker">
+                    <span id="mealTimeTitle">{{mealTimeTitle}} meal time</span>
+                    <span id="leftTopArrow" ng-click="clickArrowUpHour()"></span>
+                    <span id="rightTopArrow" ng-click="clickArrowUpMin()"></span>
+                    <span id="leftBottomArrow" ng-click="clickArrowDownHour()"></span>
+                    <span id="rightBottomArrow" ng-click="clickArrowDownMin()"></span>
+                    <section id="timePickerTime">{{mealTimeTime}}</section>
+                    <section id="doneTimepicker" ng-click="doneTimepicker()"><p>DONE</p></section>
+                    <section id="cancelTimepicker" ng-click="cancelTimepicker()"><p>CANCEL</p></section>
+                </section>
+
+
+                <section id="blockPage" ng-hide="blockPageHide">
+                    <span class="meal blockMeal">{{blockPageRecipe.meal.toUpperCase()}}</span>
+                    <span class="bell blockBell"></span>
+                    <span class="time blockTime">{{blockPageRecipe.timepickertime}}</span>
+                    <section class="scaleSmall">
+                        <section  class="recipeImage" ng-style="{ 'backgroundImage': 'url(' + blockPageRecipe.image + ')' }">
+                            <span class="recipeName">{{blockPageRecipe.name}}</span>
+                            <span class="recipeTimeToMake">{{blockPageRecipe.time}}</span>
+                            <span class="recipeServes">{{blockPageRecipe.serves}}</span>
+                            <span class="likeFill" ng-class="{'liked' : blockPageRecipe.likedMeal}"></span>
+                            <span class="like"></span>
+                        </section>
+
+
+                        <!-- the buttons of each bottom section -->
+                        <section class="ingredients-btn recipe-btn">INGREDIENTS</section>
+                        <section class="directions-btn recipe-btn">DIRECTIONS</section>
+                        <div class="clear"></div>
+                    </section>
+                    <span id="addBlockList">Add recipe to Black List?</span>
+                    <section id="blockDone" ng-click="blockDone()">DONE</section>
+                    <section id="blockCancel" ng-click="blockCancel()">CANCEL</section>
+                    <section id="blackShade"></section>
+                </section>
 
                 <!-- footer will be the navigation bar between the days  -->
                 <footer>

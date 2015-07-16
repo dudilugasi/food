@@ -74,13 +74,13 @@ app.controller('controller',function($scope,$http){
 
     //hold the data recipes
     $scope.recipes = {days : [
-        {name:"Su",meals: []},
-        {name:"Mo",meals: []},
-        {name:"Tu",meals: []},
-        {name:"We",meals: []},
-        {name:"Th",meals: []},
-        {name:"Fr",meals: []},
-        {name:"Sa",meals: []}
+        {name:"Su",meals: [], hide: false},
+        {name:"Mo",meals: [], hide: true},
+        {name:"Tu",meals: [], hide: true},
+        {name:"We",meals: [], hide: true},
+        {name:"Th",meals: [], hide: true},
+        {name:"Fr",meals: [], hide: true},
+        {name:"Sa",meals: [], hide: true}
     ]};
 
     //index of the current page in the category page
@@ -160,7 +160,6 @@ app.controller('controller',function($scope,$http){
             }
 
             for (i = 0 ; i < 7 ; i++){
-                $scope.recipes.days[i].hide = true;
                 $scope.recipes.days[i].meals[0] = breakfastArray[Math.floor(Math.random() * breakfastArray.length)];
                 $scope.recipes.days[i].meals[1] = lunchArray[Math.floor(Math.random() * lunchArray.length)];
                 $scope.recipes.days[i].meals[2] = dinnerArray[Math.floor(Math.random() * dinnerArray.length)];
