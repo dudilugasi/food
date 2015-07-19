@@ -113,7 +113,7 @@ section, main, nav {
 
     #leftArrow {
         position: absolute;
-        background-image: url('../images/left_arrow_icon.gif');
+        background-image: url('../images/left_arrow_icon.png');
         width: 54px;
         height: 38px;
         display: inline-block;
@@ -125,7 +125,7 @@ section, main, nav {
 
     #rightArrow {
         position: absolute;
-        background-image: url('../images/right_arrow_icon.gif');
+        background-image: url('../images/right_arrow_icon.png');
         width: 54px;
         height: 38px;
         display: inline-block;
@@ -417,12 +417,9 @@ section, main, nav {
     }
 
     .pressed-btn {
-        background-color: #c8a78a;
         border: solid 2px #c8a78a;
         color: #fff;
-        background-image: url('../images/open-btn-arrow.png');
-        background-repeat: no-repeat;
-        background-position: 224px 121px;
+        background: #c8a78a url('../images/open-btn-arrow.png') no-repeat 230px 125px;
     }
 
     .directions-btn.pressed-btn {
@@ -765,8 +762,8 @@ section, main, nav {
     }
 
     .day.ng-hide-add {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
+        -webkit-transition: all linear 0.2s;
+        transition: all linear 0.2s;
         left: 0;
     }
 
@@ -775,8 +772,8 @@ section, main, nav {
     }
 
     .day.ng-hide-remove {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
+        -webkit-transition: all linear 0.2s;
+        transition: all linear 0.2s;
         left: 1080px;
     }
 
@@ -874,7 +871,7 @@ section, main, nav {
 
         #leftArrow {
             position: absolute;
-            background-image: url('../images/left_arrow_icon.gif');
+            background-image: url('../images/left_arrow_icon.png');
             width: 54px;
             height: 38px;
             display: inline-block;
@@ -886,7 +883,7 @@ section, main, nav {
 
         #rightArrow {
             position: absolute;
-            background-image: url('../images/right_arrow_icon.gif');
+            background-image: url('../images/right_arrow_icon.png');
             width: 54px;
             height: 38px;
             display: inline-block;
